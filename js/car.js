@@ -351,7 +351,7 @@ Car.prototype = {
 
     if(this.driftAmount > 0 && this.speed > 8000) {
       this.driftAmount -= dt;
-      mult -= 0.08;
+      mult -= 0.04;
       if(this.driftDirection == 0) {
         if(this.turnLeft) {
           this.driftDirection = -1;

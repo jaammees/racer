@@ -28,7 +28,7 @@ function raceAudioInit() {
     audioScriptNode.onaudioprocess = function(e) {
       //audioEngineData = audioTurboData;
 
-      var channel = event.outputBuffer.getChannelData(0);
+      var channel = e.outputBuffer.getChannelData(0);
       var index;
 
       for (var i = 0; i < channel.length; ++i) {

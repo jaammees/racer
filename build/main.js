@@ -2565,7 +2565,7 @@ Car.prototype = {
 
     if(this.m7 > 0 && this.v9 > 8000) {
       this.m7 -= dt;
-      mult -= 0.08;
+      mult -= 0.04;
       if(this.h8 == 0) {
         if(this.s1) {
           this.h8 = -1;
@@ -4095,7 +4095,7 @@ function i6() {
     f6.onaudioprocess = function(e) {
       //f7 = g7;
 
-      var channel = event.outputBuffer.getChannelData(0);
+      var channel = e.outputBuffer.getChannelData(0);
       var index;
 
       for (var i = 0; i < channel.length; ++i) {
