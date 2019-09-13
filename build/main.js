@@ -556,7 +556,7 @@ var tree = {
   o0:'',
   
   draw : function() {
-      j4(500/2,600);
+      j4(500/2,500);
       this.o0 = '#'+(0x1000000+(r9())*0xffffff).toString(16).substr(1,6);
       cntx.lineWidth = 1 + (r9() * 20);
       cntx.lineJoin = 'round';
@@ -568,11 +568,11 @@ var tree = {
     if (depth < 12) {
         k3();
         p0(0,0);
-        o9(0,-(600)/10);
+        o9(0,-(500)/10);
 
         p2();
         
-        j4(0,-600/10);
+        j4(0,-500/10);
         var randomN = -(r9() * 0.1) + 0.1;
 
         q1(randomN); 
@@ -1505,7 +1505,6 @@ m5.prototype = {
   keyUp: function(e) {
 
   },
-  /*
 
   p5: function() {
     n2 = true;
@@ -1546,7 +1545,8 @@ m5.prototype = {
     }
   
   },
-*/
+
+
   render: function(dt) {
     cntx = this.t2;
     var t = l6();
@@ -1574,7 +1574,7 @@ m5.prototype = {
 
 
     v0.z = l1(v0.z, dt * 120, v5.r1());
-    //this.p5();
+    this.p5();
 
   }
   
@@ -1671,7 +1671,7 @@ var h3      = 0;
 var h4     = 0;   
 var h6     = 0;   
 var n2 = false;
-
+var lastDriftDraw = 0;
 
 // draw a t0
 function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
@@ -1951,16 +1951,21 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
 
     // ************** DRAW DRIFT *************** //
     if( u4.m7 > 0) {
-      g1(0.8);
-      t2.fillStyle = p8;
-      var x = destX + 12;
-      var y = destY - 4;
-      t2.fillRect(x, y, 80, 10)
+      var time = l6();
+      if(time - lastDriftDraw > 100) {
 
-      x = destX + 260;
-      t2.fillRect(x, y, 80, 10)
+        g1(0.8);
+        k4(p8);
+        var x = destX + 12;
+        var y = destY - 4;
+        m2(x, y, 50, 10)
 
-      g1(1);
+        x = destX + 260;
+        m2(x, y, 50, 10)
+
+        g1(1);
+        lastDriftDraw = time;
+      }
     }
 
     //  ******  DRAW TURBO  ***** /
@@ -2540,13 +2545,13 @@ Car.prototype = {
 
     if(this.m3) {
       // can only v8 over certain v9 ,otherwise we're s9
-      if(this.v9 > 18000 && !this.q2) {
-        if(!this.v8) {
+      if(this.v9 > 8000 ) {
+        if(!this.v8 && !this.q2) {
           this.m7 = 1.2;
           this.v8 = true;
         }
 
-        mult -= 0.1;
+        //mult -= 0.1;
         // can turn faster
       } else {
         mult -= 0.5;
@@ -2558,8 +2563,9 @@ Car.prototype = {
     }
 
 
-    if(this.m7 > 0 && this.v9 > 19000) {
+    if(this.m7 > 0 && this.v9 > 8000) {
       this.m7 -= dt;
+      mult -= 0.08;
       if(this.h8 == 0) {
         if(this.s1) {
           this.h8 = -1;
@@ -3168,7 +3174,7 @@ v3.prototype = {
     t.e9();
     t.drawMap();
 
-    t.createRoadsideObjects(k1, 0.9, 10, 600, true);
+    t.createRoadsideObjects(k1, 0.9, 10, 900, true);
 
   },
 

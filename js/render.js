@@ -12,7 +12,7 @@ var bgLayer3Offset      = 0;
 var bgLayer2Offset     = 0;   
 var bgLayer1Offset     = 0;   
 var outlineOnly = false;
-
+var lastDriftDraw = 0;
 
 // draw a polygon
 function renderPolygon(x1, y1, x2, y2, x3, y3, x4, y4, color) {
@@ -292,16 +292,21 @@ function renderPolygon(x1, y1, x2, y2, x3, y3, x4, y4, color) {
 
     // ************** DRAW DRIFT *************** //
     if( player.driftAmount > 0) {
-      cntxGlobalAlpha(0.8);
-      context.fillStyle = MEDIUMGREY;
-      var x = destX + 12;
-      var y = destY - 4;
-      context.fillRect(x, y, 80, 10)
+      var time = getTimestamp();
+      if(time - lastDriftDraw > 100) {
 
-      x = destX + 260;
-      context.fillRect(x, y, 80, 10)
+        cntxGlobalAlpha(0.8);
+        cntxFillStyle(MEDIUMGREY);
+        var x = destX + 12;
+        var y = destY - 4;
+        cntxFillRect(x, y, 50, 10)
 
-      cntxGlobalAlpha(1);
+        x = destX + 260;
+        cntxFillRect(x, y, 50, 10)
+
+        cntxGlobalAlpha(1);
+        lastDriftDraw = time;
+      }
     }
 
     //  ******  DRAW TURBO  ***** /

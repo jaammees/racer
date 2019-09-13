@@ -20,7 +20,6 @@ TitleScreen.prototype = {
   keyUp: function(e) {
 
   },
-  /*
 
   renderRoad: function() {
     outlineOnly = true;
@@ -61,7 +60,8 @@ TitleScreen.prototype = {
     }
   
   },
-*/
+
+
   render: function(dt) {
     cntx = this.context;
     var t = getTimestamp();
@@ -89,7 +89,7 @@ TitleScreen.prototype = {
 
 
     camera.z = utilIncrease(camera.z, dt * 120, track.getLength());
-    //this.renderRoad();
+    this.renderRoad();
 
   }
   

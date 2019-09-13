@@ -331,13 +331,13 @@ Car.prototype = {
 
     if(this.driftRequest) {
       // can only drift over certain speed ,otherwise we're breaking
-      if(this.speed > 18000 && !this.accelerate) {
-        if(!this.drift) {
+      if(this.speed > 8000 ) {
+        if(!this.drift && !this.accelerate) {
           this.driftAmount = 1.2;
           this.drift = true;
         }
 
-        mult -= 0.1;
+        //mult -= 0.1;
         // can turn faster
       } else {
         mult -= 0.5;
@@ -349,8 +349,9 @@ Car.prototype = {
     }
 
 
-    if(this.driftAmount > 0 && this.speed > 19000) {
+    if(this.driftAmount > 0 && this.speed > 8000) {
       this.driftAmount -= dt;
+      mult -= 0.08;
       if(this.driftDirection == 0) {
         if(this.turnLeft) {
           this.driftDirection = -1;

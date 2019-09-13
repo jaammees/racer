@@ -146,7 +146,7 @@ Track.prototype = {
     t.calculateLength();
     t.drawMap();
 
-    t.createRoadsideObjects(SPRITES_TREES, 0.9, 10, 600, true);
+    t.createRoadsideObjects(SPRITES_TREES, 0.9, 10, 900, true);
 
   },
 

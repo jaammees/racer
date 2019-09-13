@@ -367,7 +367,7 @@ Race.prototype = {
     if(this.state == STATE_RACEOVER) {
       context.font = ' 300px ' + helvetica;
       cntxFillStyle(LIGHTGREY);
-      context.fillText("1st", 300, 290);//cars[0].finishPosition, 494, 254);
+      context.fillText(cars[0].finishPosition, 300, 290);//cars[0].finishPosition, 494, 254);
       context.font = ' 40px ' + helvetica;
       var y = 380;
       if(cars[0].finishPosition == '1st') {

@@ -441,7 +441,7 @@ var tree = {
   leavesColor:'',
   
   draw : function() {
-      cntxTranslate(500/2,600);
+      cntxTranslate(500/2,500);
       this.leavesColor = '#'+(0x1000000+(mathRand())*0xffffff).toString(16).substr(1,6);
       cntx.lineWidth = 1 + (mathRand() * 20);
       cntx.lineJoin = 'round';
@@ -453,11 +453,11 @@ var tree = {
     if (depth < 12) {
         cntxBeginPath();
         cntxMoveTo(0,0);
-        cntxLineTo(0,-(600)/10);
+        cntxLineTo(0,-(500)/10);
 
         cntxStroke();
         
-        cntxTranslate(0,-600/10);
+        cntxTranslate(0,-500/10);
         var randomN = -(mathRand() * 0.1) + 0.1;
 
         cntxRotate(randomN); 
