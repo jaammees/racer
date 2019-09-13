@@ -1,3 +1,4 @@
+// hopefully  versions of math functions which take less bytes
 var M = Math;
 var PI = Math.PI;
 

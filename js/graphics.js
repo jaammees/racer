@@ -1,4 +1,4 @@
-
+// generate graphics used in the game
 
 // constants
 var SCRATCHWIDTH = 600, 

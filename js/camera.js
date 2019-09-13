@@ -1,23 +1,14 @@
 var Camera = function() {
-  /*
-  var fieldOfView    = 100;                     // angle (degrees) for field of view
-  var cameraHeight   = 1000;                    // z height of camera
-  var cameraDepth    = null;                    // z distance camera is from screen (computed)
-  var drawDistance   = 300;                     // number of segments to draw
-var fogDensity     = 5;                       // exponential fog density
-
-  */
   this.fieldOfView = 100;
-//  this.y = 800;//1000; //   camera height   // const  ??
 
   this.y = 0;
   this.z = 0;
-  this.drawDistance = 300;   // const??
-  this.depth = 0;            // z distance camera is from screen (computed)
+  this.drawDistance = 300;  
+  this.depth = 0;           
   this.fogDensity =  25;
-  this.zOffset = 0;          // offset from the back of the player
-  this.yOffset = 740;//800;
-  this.zOffset = 700;//750;
+  this.zOffset = 0;         
+  this.yOffset = 740;
+  this.zOffset = 700;
 
 
 }
@@ -25,8 +16,8 @@ var fogDensity     = 5;                       // exponential fog density
 Camera.prototype = {
   reset: function() {
     this.depth            = 1 / Math.tan( ( this.fieldOfView / 2 ) * Math.PI/180);
-    this.yOffset = 740;//800;
-    this.zOffset = 700;//750;
+    this.yOffset = 740;
+    this.zOffset = 700;
   
   },
 
@@ -45,23 +36,17 @@ Camera.prototype = {
 
     p.screen.x     = Math.round((width/2)  + (p.screen.scale * p.camera.x  * width/2));
     p.screen.y     = Math.round((height/2) - (p.screen.scale * p.camera.y  * height/2));
-//    p.screen.w     = Math.round(             (p.screen.scale * roadWidth   * width/2));
   
   },
 
-//|..x.....|
 
   update: function(dt) {
-
-    // why does zOffset depend on y and depth? to lock car to bottom of screen?
-//    this.zOffset = (this.y * this.depth) + 80;
-//    this.zOffset = 680;//750;
     this.z = cars[0].z - this.zOffset;
     if(this.z < 0) {
       this.z += track.getLength();
     }
 
-    camera.x = cars[0].x + cars[0].width/2;// * laneWidth;
+    camera.x = cars[0].x + cars[0].width/2;
 
 
     var playerSegment = track.findSegment(cars[0].z);

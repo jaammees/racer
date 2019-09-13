@@ -1,3 +1,5 @@
+// the title screen
+
 var TitleScreen = function(canvas, context) {
   this.canvas = canvas;
   this.context = context;

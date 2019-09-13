@@ -1,3 +1,4 @@
+// define the tracks in the game
 var COLORS_KERBLIGHT = '#a02222',
     COLORS_KERBDARK = '#BBBBBB',
     COLORS_LANDLIGHT = '#000000',

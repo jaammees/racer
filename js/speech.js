@@ -1,3 +1,4 @@
+// say things
 var english_voice = '';
 
 function speak(text) {

@@ -1,3 +1,5 @@
+// entry point, set up main loop
+
 var canvas = document.getElementById('gameCanvas');
 var context = canvas.getContext('2d');
 var racing = false;

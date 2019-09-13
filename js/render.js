@@ -1,4 +1,4 @@
-                 
+// draw all the race stuff to the screen                 
 var width  = 1024;
 var height  = 768;
 var resolution = height/480;

@@ -1,5 +1,5 @@
 
-
+// the player car and the opponents car
 var Car = function() {
   var t = this;
 

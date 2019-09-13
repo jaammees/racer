@@ -1,4 +1,5 @@
-                   // total number of cars on the road
+// controls the race
+
 var track = null;
 
 var numbers = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'];
