@@ -3962,7 +3962,7 @@ Race.prototype = {
     if(this.state == 5) {
       t2.font = ' 300px ' + q7;
       k4(q5);
-      t2.fillText("1st", 300, 290);//cars[0].g5, 494, 254);
+      t2.fillText(cars[0].g5, 300, 290);//cars[0].g5, 494, 254);
       t2.font = ' 40px ' + q7;
       var y = 380;
       if(cars[0].g5 == '1st') {
