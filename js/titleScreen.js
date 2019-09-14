@@ -86,7 +86,7 @@ TitleScreen.prototype = {
     }
 
     context.font = '44px ' + helvetica;
-    cntxFillText("Arrow keys to drive, z for Turbo, x for Handbreak", 38, 570);
+    cntxFillText("Arrow keys to drive, x for Turbo, z for Handbrake", 38, 570);
     cntxFillText("x To Start", 423, 460);
 
 

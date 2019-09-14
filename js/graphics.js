@@ -685,6 +685,7 @@ function createBuildings(night) {
 function createStreetlights(night) {
   cntx = scratchCanvas.x;
   eraseScratch();
+  cntxSave();
 
   cntxFillStyle('#999999');
 
@@ -750,10 +751,12 @@ function createStreetlights(night) {
     cntxGlobalAlpha(1);
   }
 
-  cntx.filter = null;
+//  cntx.filter = null;
+//  cntx.globalCompositeOperation = 'source-over';
 
   SPRITES_STREETLIGHTLEFT = newSprite();
   SPRITES_STREETLIGHTRIGHT = newSprite(1);
+  cntxRestore();
 
 }
 

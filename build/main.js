@@ -94,6 +94,7 @@ function i5(img, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH) {
 }
 
 
+// hopefully  versions of math functions which take less bytes
 var M = Math;
 var PI = Math.PI;
 
@@ -113,7 +114,7 @@ function cos(angle) {
 }
 
 
-
+// generate graphics used in the game
 
 // constants
 var l3 = 600, 
@@ -800,6 +801,7 @@ function f8(night) {
 function c3(night) {
   cntx = j8.x;
   k9();
+  s3();
 
   k4('#999999');
 
@@ -865,10 +867,12 @@ function c3(night) {
     g1(1);
   }
 
-  cntx.filter = null;
+//  cntx.filter = null;
+//  cntx.globalCompositeOperation = 'u6-over';
 
   a7 = q4();
   a5 = q4(1);
+  n0();
 
 }
 
@@ -1483,6 +1487,8 @@ function l1(start, increment, max) {
 }
 
 
+// the title u1
+
 var m5 = function(canvas, t2) {
   this.canvas = canvas;
   this.t2 = t2;
@@ -1569,7 +1575,7 @@ m5.prototype = {
     }
 
     t2.font = '44px ' + q7;
-    l2("Arrow keys to drive, z for Turbo, x for Handbreak", 38, 570);
+    l2("Arrow keys to drive, x for Turbo, z for Handv2", 38, 570);
     l2("x To Start", 423, 460);
 
 
@@ -1581,25 +1587,16 @@ m5.prototype = {
 }
 
 var u3 = function() {
-  /*
-  var fieldOfView    = 100;                     // angle (degrees) for field of view
-  var v0Height   = 1000;                    // z height of v0
-  var v0Depth    = null;                    // z distance v0 is from u1 (computed)
-  var l5   = 300;                     // number of t4s to draw
-var fogDensity     = 5;                       // exponential fog density
-
-  */
   this.fieldOfView = 100;
-//  this.y = 800;//1000; //   v0 height   // const  ??
 
   this.y = 0;
   this.z = 0;
-  this.l5 = 300;   // const??
-  this.depth = 0;            // z distance v0 is from u1 (computed)
+  this.l5 = 300;  
+  this.depth = 0;           
   this.fogDensity =  25;
-  this.t6 = 0;          // offset from the back of the u4
-  this.u0 = 740;//800;
-  this.t6 = 700;//750;
+  this.t6 = 0;         
+  this.u0 = 740;
+  this.t6 = 700;
 
 
 }
@@ -1607,8 +1604,8 @@ var fogDensity     = 5;                       // exponential fog density
 u3.prototype = {
   reset: function() {
     this.depth            = 1 / Math.tan( ( this.fieldOfView / 2 ) * Math.PI/180);
-    this.u0 = 740;//800;
-    this.t6 = 700;//750;
+    this.u0 = 740;
+    this.t6 = 700;
   
   },
 
@@ -1627,23 +1624,17 @@ u3.prototype = {
 
     p.u1.x     = Math.round((width/2)  + (p.u1.scale * p.v0.x  * width/2));
     p.u1.y     = Math.round((height/2) - (p.u1.scale * p.v0.y  * height/2));
-//    p.u1.w     = Math.round(             (p.u1.scale * roadWidth   * width/2));
   
   },
 
-//|..x.....|
 
   update: function(dt) {
-
-    // why does t6 depend on y and depth? to lock car to bottom of u1?
-//    this.t6 = (this.y * this.depth) + 80;
-//    this.t6 = 680;//750;
     this.z = cars[0].z - this.t6;
     if(this.z < 0) {
       this.z += v5.r1();
     }
 
-    v0.x = cars[0].x + cars[0].width/2;// * q8;
+    v0.x = cars[0].x + cars[0].width/2;
 
 
     var u4Segment = v5.n1(cars[0].z);
@@ -1657,7 +1648,7 @@ u3.prototype = {
   }
 }
 
-                 
+// draw all the race stuff to the u1                 
 var width  = 1024;
 var height  = 768;
 var resolution = height/480;
@@ -2213,7 +2204,7 @@ spriteX = destX + collisionx;// + collisionx * spriteScale * width / 2;// + spri
 
 
 
-
+// the u4 car and the opponents car
 var Car = function() {
   var t = this;
 
@@ -3026,6 +3017,7 @@ Car.prototype = {
   }
 }
 
+// define the v5s in the game
 var e4 = '#a02222',
     g2 = '#BBBBBB',
     d4 = '#000000',
@@ -3593,7 +3585,8 @@ v3.prototype = {
 
 
 
-                   // total number of cars on the road
+// controls the race
+
 var v5 = null;
 
 var numbers = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'];
@@ -3976,6 +3969,8 @@ Race.prototype = {
   }
 }
 
+// entry point, set up main loop
+
 var canvas = document.getElementById('gameCanvas');
 var t2 = canvas.getContext('2d');
 var u8 = false;
@@ -4091,7 +4086,7 @@ function i6() {
     a2();
 
 
-    f6 = r4.createScriptProcessor(1024);
+    f6 = r4.createScriptProcessor(1024, 1, 1);
     f6.onaudioprocess = function(e) {
       //f7 = g7;
 
@@ -4262,6 +4257,7 @@ function g8() {
 
 
 
+// say things
 var i9 = '';
 
 function speak(text) {

@@ -24,7 +24,7 @@ function raceAudioInit() {
     raceAudioCreateNoiseBuffer();
 
 
-    audioScriptNode = audioCtx.createScriptProcessor(1024);
+    audioScriptNode = audioCtx.createScriptProcessor(1024, 1, 1);
     audioScriptNode.onaudioprocess = function(e) {
       //audioEngineData = audioTurboData;
 
