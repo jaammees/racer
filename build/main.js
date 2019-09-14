@@ -2,16 +2,16 @@
 
 
 
-var q7 = ' "Helvetica Neue", Helvetica, Arial, sans-serif';
+var q6 = ' "Helvetica Neue", Helvetica, Arial, sans-serif';
 
 var c6=0;
 
-var u2 = { 
+var u4 = { 
 
-  LIGHT:  { road: '#3a3a3a', grass: '#047804', w0: '#a02222', lane: '#CCCCCC'  },
-  DARK:   { road: '#3a3a3a', grass: '#006A00', w0: '#BBBBBB'                   },
-  START:  { road: 'white',   grass: '#009A00', w0: '#BBBBBB'                     },
-  FINISH: { road: 'black',   grass: 'black',   w0: 'black'                     }
+  LIGHT:  { road: '#3a3a3a', grass: '#047804', v9: '#a02222', lane: '#CCCCCC'  },
+  DARK:   { road: '#3a3a3a', grass: '#006A00', v9: '#BBBBBB'                   },
+  START:  { road: 'white',   grass: '#009A00', v9: '#BBBBBB'                     },
+  FINISH: { road: 'black',   grass: 'black',   v9: 'black'                     }
 };
 
 
@@ -25,7 +25,7 @@ function j7(width, height) {
 function g1(alpha) {
   cntx.globalAlpha = alpha;
 }
-function m2(x, y, width, height) {
+function m0(x, y, width, height) {
   cntx.fillRect(x, y, width, height);
 }
   
@@ -53,22 +53,22 @@ function p0(x, y) {
   cntx.moveTo(x, y);
 }
 
-function t9(x,y,r,sAngle,eAngle,counterclockwise) {
+function t4(x,y,r,sAngle,eAngle,counterclockwise) {
   cntx.arc(x,y,r,sAngle,eAngle,counterclockwise);
 }
 
-function o9(x, y) {
+function o8(x, y) {
   cntx.lineTo(x, y);
 }
 function k0() {
   cntx.closePath();
 }
 
-function s2() {
+function s9() {
   cntx.fill();
 }
 
-function l2(t,x,y) {
+function k9(t,x,y) {
   cntx.fillText(t,x,y);
 
 }
@@ -85,7 +85,7 @@ function j4(x, y) {
   cntx.translate(x, y);
 }
 
-function q1(a) {
+function p9(a) {
   cntx.rotate(a);
 }
 
@@ -117,33 +117,33 @@ function cos(angle) {
 // generate graphics used in the game
 
 // constants
-var l3 = 600, 
+var l1 = 600, 
     k6 = 600,
-    l8 = 2400,
+    l6 = 2400,
     k5 = 2400,
     b4 = 1280,
     a9 = 480,
     c2 = 600,
     b9 = 600,
-    j8 = l4(l3, k6),
-    t8 = l4(l8, k5)
-    j9 = t8.c,
-    h0 = t8.x,
-    e3 = l4(b4, a9),
-    e2 = l4(b4, a9),
-    e1 = l4(b4, a9),
-    j1 = l4(c2, b9),
+    j9 = l9(l1, k6),
+    t1 = l9(l6, k5)
+    j8 = t1.c,
+    h0 = t1.x,
+    e3 = l9(b4, a9),
+    e2 = l9(b4, a9),
+    e1 = l9(b4, a9),
+    j1 = l9(c2, b9),
     a7=a5=f1=d3=b7=d8=d0=e8=0,
-    c8=[],q0=0;
+    c8=[],q1=0;
 
-var r5 = '#222222';
-var p8 = '#cccccc';
-var q5 = '#e5e5e5';
+var r4 = '#222222';
+var q2 = '#cccccc';
+var q7 = '#e5e5e5';
 
-function k9() {
-  j8.x.clearRect(0,0,l3,k6);
+function m3() {
+  j9.x.clearRect(0,0,l1,k6);
 }
-function l4(width, height) {
+function l9(width, height) {
   var c = document.createElement('canvas');
   c.width = width;
   c.height = height;
@@ -152,16 +152,16 @@ function l4(width, height) {
   return { c: c, x: x };
 }
 
-var p1 = 0;
 var p3 = 0;
+var p4 = 0;
 var c1 = 0;
 
 function j2() {
-  p1 = 0;
   p3 = 0;
+  p4 = 0;
   c1 = 0;
 
-  h0.clearRect(0, 0, l8, k5);
+  h0.clearRect(0, 0, l6, k5);
 
   e1.x.clearRect(0, 0, b4, a9);  
   e2.x.clearRect(0, 0, b4, a9);  
@@ -181,20 +181,20 @@ function e6(x, y, r, c) {
   for(var i = 1; i < 30; i++) {
     angle = i * PI * 2 / 30;
     radius = r + r * r9();
-    o9(x + (radius) * cos(angle), y + (radius) * sin(angle));
+    o8(x + (radius) * cos(angle), y + (radius) * sin(angle));
   }
   k0();
-  s2();
+  s9();
 
 }
 function a8() {
   // get the bounds
-  var data = j8.x.getImageData(0, 0, j8.c.width, j8.c.height);      // get image data for canvas
+  var data = j9.x.getImageData(0, 0, j9.c.width, j9.c.height);      // get image data for canvas
   var buffer32 = new Uint32Array(data.data.buffer); // get a 32-bit representation
   var testX, testY;                                      // iterators
   
-  var w = j8.c.width;
-  var h = j8.c.height;
+  var w = j9.c.width;
+  var h = j9.c.height;
   var x1 = w, y1 = h, x2 = 0, y2 = 0;            // min/max values  
 // get left edge
 
@@ -247,17 +247,17 @@ function a8() {
     cw: cx2 - cx1
   }
 }
-// create a sprite from the scratch canvas, put into new t8
-function q4(flipH) {
+// create a sprite from the scratch canvas, put into new t1
+function q3(flipH) {
   var fh = flipH || 0;
 
   // get the bounds
   var bounds = a8();
 
-  if(p1 + bounds.w > l8) {
+  if(p3 + bounds.w > l6) {
     // need to go to next line
-    p1 = 0;
-    p3 += c1;
+    p3 = 0;
+    p4 += c1;
     c1 = 0;
   }
   if(bounds.h > c1) {
@@ -265,61 +265,61 @@ function q4(flipH) {
   }
 
   h0.save();
-  var dstX = p1;
+  var dstX = p3;
 
   if(fh) {
     h0.scale(-1, 1);
-    dstX = -p1 - bounds.w;
+    dstX = -p3 - bounds.w;
     bounds.cx = bounds.w - bounds.cx - bounds.cw;
   } 
 
-  h0.drawImage(j8.c, bounds.x, bounds.y, bounds.w, bounds.h,
-    dstX, p3, bounds.w, bounds.h);
+  h0.drawImage(j9.c, bounds.x, bounds.y, bounds.w, bounds.h,
+    dstX, p4, bounds.w, bounds.h);
   h0.restore();
 
   var result = {
-    x: p1, y: p3, w: bounds.w, h: bounds.h, cx: bounds.cx, cw: bounds.cw
+    x: p3, y: p4, w: bounds.w, h: bounds.h, cx: bounds.cx, cw: bounds.cw
   }
-  p1 += bounds.w + 5;
+  p3 += bounds.w + 5;
   return result;
 }
 
 
 // ***************** TURN ARROWS ******************** //
 function e5() {
-  cntx = j8.x;
-  k9();
+  cntx = j9.x;
+  m3();
 
   k4('#996644');
-  m2(0, 0, 200, 200);
+  m0(0, 0, 200, 200);
 
   k4('#996644');
-  m2(10, 200, 10, 10);
+  m0(10, 200, 10, 10);
 
   k4('#996644');
-  m2(180, 200, 10, 10);
+  m0(180, 200, 10, 10);
 
-  k4(p8);
-  m2(10, 10, 180, 180);
+  k4(q2);
+  m0(10, 10, 180, 180);
   k3();
   p0(20, 100);
-  o9(160, 30);
-  o9(160, 170);
-  o9(20, 100);
+  o8(160, 30);
+  o8(160, 170);
+  o8(20, 100);
   k4('#cc2211');
-  s2();
+  s9();
 
-  k4(p8);
-  m2(10, 10, 20, 180);
+  k4(q2);
+  m0(10, 10, 20, 180);
 
-  d8 = q4();
-  d0 = q4(1);
+  d8 = q3();
+  d0 = q3(1);
 }
 
 
 // ***************** BACKGROUND TREES ******************** //
 
-function r0(width, slope) {
+function q5(width, slope) {
   var points = [];
   var y = 0;
   var index = 0;
@@ -360,18 +360,18 @@ function b1() {
     for(var i =0 ; i < width; i++) {
     // get the points
 
-    var terPoints = r0(8, 7);
+    var terPoints = q5(8, 7);
       //var terPoints = t5(width, height, height / 2, 0.6);
       var colour = m8(colours.length);
       k4(colours[colour]);
       k3();
       p0(x, 240 - terPoints[0]);
       for (var t = 1; t < terPoints.length; t++) {
-        o9(x + t, 240 - terPoints[t]);
+        o8(x + t, 240 - terPoints[t]);
       }
       // finish creating the rect so we can fill it
       k0();
-      s2();
+      s9();
 
       x += 2 +  r9() * 4;
     }
@@ -389,17 +389,17 @@ function b1() {
     for(var i =0 ; i < width; i++) {
     // get the points
 
-    var terPoints = r0(4, 4);
+    var terPoints = q5(4, 4);
       //var terPoints = t5(width, height, height / 2, 0.6);
       var colour = m8(colours.length);
       k4(colours[colour]);
       k3();
       p0(x, 240 - terPoints[0]);
       for (var t = 1; t < terPoints.length; t++) {
-        o9(x + t, 240 - terPoints[t]);
+        o8(x + t, 240 - terPoints[t]);
       }
       k0();
-      s2();
+      s9();
       x += 2 +  r9() * 5;
     }
 
@@ -488,10 +488,10 @@ function t5(startX) {//}, width, height, displace, roughness) {
   k3();
   p0(x, heightOffset - points[0]);
   for (var t = 1; t < points.length; t++) {
-    o9(x + t, heightOffset - points[t]);
+    o8(x + t, heightOffset - points[t]);
   }
   k0();
-  s2();
+  s9();
 
 
   x = startX;
@@ -499,12 +499,12 @@ function t5(startX) {//}, width, height, displace, roughness) {
   k3();
   p0(x, heightOffset - highlightpoints[0]);
   for (var t = 1; t < highlightpoints.length; t++) {
-    o9(x, heightOffset - highlightpoints[t]);
+    o8(x, heightOffset - highlightpoints[t]);
     x++;
   }
 
   for (var t = 1; t < highlightBackpoints.length; t++) {
-    o9(x, heightOffset - highlightBackpoints[t]);
+    o8(x, heightOffset - highlightBackpoints[t]);
 
     if(r9() > 0.4) {
       x--;
@@ -513,7 +513,7 @@ function t5(startX) {//}, width, height, displace, roughness) {
     }
   }
   k0();
-  s2();  
+  s9();  
 
   // highlight 2
   x = startX + 4;
@@ -521,12 +521,12 @@ function t5(startX) {//}, width, height, displace, roughness) {
   k3();
   p0(x, heightOffset - highlightpoints2[0]);
   for (var t = 1; t < highlightpoints2.length; t++) {
-    o9(x, heightOffset - highlightpoints2[t]);
+    o8(x, heightOffset - highlightpoints2[t]);
     x++;
   }
 
   for (var t = 1; t < highlightBackpoints2.length; t++) {
-    o9(x, heightOffset - highlightBackpoints2[t]);
+    o8(x, heightOffset - highlightBackpoints2[t]);
 
     if(r9() > 0.8) {
       x++;
@@ -536,7 +536,7 @@ function t5(startX) {//}, width, height, displace, roughness) {
   }
 
   k0();
-  s2();
+  s9();
 
   return points;
 }
@@ -562,39 +562,39 @@ var tree = {
       cntx.lineWidth = 1 + (r9() * 20);
       cntx.lineJoin = 'round';
       
-      this.u5(0);
+      this.u2(0);
   },
   
-  u5 : function(depth) {
+  u2 : function(depth) {
     if (depth < 12) {
         k3();
         p0(0,0);
-        o9(0,-(500)/10);
+        o8(0,-(500)/10);
 
         p2();
         
         j4(0,-500/10);
         var randomN = -(r9() * 0.1) + 0.1;
 
-        q1(randomN); 
+        p9(randomN); 
 
         if ((r9() * 1) < 0.6) {
-          q1(-0.35);
+          p9(-0.35);
           cntx.scale(0.7,0.7);
           s3();
-          this.u5(depth + 1);
+          this.u2(depth + 1);
           n0();  
-          q1(0.6);
+          p9(0.6);
           s3();
-          this.u5(depth + 1);   
+          this.u2(depth + 1);   
           n0();        
         } else  { 
-            this.u5(depth);
+            this.u2(depth);
         }
     } else {   
           
       k4(this.o0);
-      m2(0, 0, 500, 200);
+      m0(0, 0, 500, 200);
       p2();
     }
   }
@@ -611,17 +611,17 @@ function createTrees() {
     var treeOK = false;
     var c = 0;
     while(!treeOK) {
-      cntx = j8.x;
-      j8.x.save();
-      k9();
+      cntx = j9.x;
+      j9.x.save();
+      m3();
       tree.draw();
       var bounds = a8();
       treeOK = (bounds.w < 300 && bounds.h < 400) || c > 5;
 
-      j8.x.restore();
+      j9.x.restore();
       c++;
     }
-    k1[ti] = q4();
+    k1[ti] = q3();
   }
 }
 
@@ -666,17 +666,17 @@ function c0(x, type, buildingColor, windowColor) {
     buildingWidth = 18;//30;
   }
 
-  var u0 = 260;
+  var t9 = 260;
 
   buildingHeight += 30 * r9();
   k4(buildingColor);
-  m2(x, u0 - buildingHeight, buildingWidth, buildingHeight);
+  m0(x, t9 - buildingHeight, buildingWidth, buildingHeight);
 
   if(r9() < 0.4) {
     var inset = 5;
     var insetHeight = 8;
-    m2(x + inset, 
-      u0 - (buildingHeight + insetHeight), 
+    m0(x + inset, 
+      t9 - (buildingHeight + insetHeight), 
       buildingWidth - 2*inset, 
       buildingHeight + insetHeight);
   }
@@ -686,8 +686,8 @@ function c0(x, type, buildingColor, windowColor) {
     var insetHeight = 13;
     var insetWidth = 2;
 
-    m2(x + inset, 
-      u0 - (buildingHeight + insetHeight), 
+    m0(x + inset, 
+      t9 - (buildingHeight + insetHeight), 
       insetWidth, 
       buildingHeight + insetHeight);
   }
@@ -697,7 +697,7 @@ function c0(x, type, buildingColor, windowColor) {
     for(var col = 0; col < windowColumns; col++) {
       var wx = windowSpacing + col * (windowWidth + windowSpacing);
       k4(windowColor);
-      m2(x + wx, u0 - buildingHeight + wy, windowWidth, windowHeight);
+      m0(x + wx, t9 - buildingHeight + wy, windowWidth, windowHeight);
     }
   }
 }
@@ -750,8 +750,8 @@ function a4(night) {
 function f8(night) {
   c8 = [];
   for(var ti = 0; ti < 4; ti++) {
-    k9();
-    cntx = j8.x;
+    m3();
+    cntx = j9.x;
     var grey = 100 + r9() * 80;
 
 
@@ -759,7 +759,7 @@ function f8(night) {
       grey = 10 + r9() * 20;
     }
     k4('rgb(' + grey + ',' + grey + ',' + grey + ')');
-    m2(0, 30, 240, 500);
+    m0(0, 30, 240, 500);
 
     var windowWidth=24, windowHeight=15,windowStartOffset=8,windowSpacingH = 8,windowSpacingV = 10;
     var row=col=x=y=0;
@@ -772,25 +772,25 @@ function f8(night) {
         if(night) {
           if(r9() > 0.7) {
             k4('#ffffec');
-            m2(x, y, windowWidth, windowHeight);
+            m0(x, y, windowWidth, windowHeight);
             k4('#bbbb88');
-            m2(x, y + windowHeight / 2, windowWidth, windowHeight / 2);
+            m0(x, y + windowHeight / 2, windowWidth, windowHeight / 2);
           } else {          
             k4('#112237');
-            m2(x, y, windowWidth, windowHeight);
+            m0(x, y, windowWidth, windowHeight);
             k4('#111a30');
-            m2(x, y + windowHeight / 2, windowWidth, windowHeight / 2);
+            m0(x, y + windowHeight / 2, windowWidth, windowHeight / 2);
           }
         } else {
           k4('#5555a7');
           //ctx.filter = 'blur(1px)';
-          m2(x, y, windowWidth, windowHeight);
+          m0(x, y, windowWidth, windowHeight);
           k4('#444495');
-          m2(x, y + windowHeight / 2, windowWidth, windowHeight / 2);
+          m0(x, y + windowHeight / 2, windowWidth, windowHeight / 2);
         }
       }
     }
-    c8[ti] = q4();
+    c8[ti] = q3();
 
   }
 }
@@ -799,8 +799,8 @@ function f8(night) {
 
 
 function c3(night) {
-  cntx = j8.x;
-  k9();
+  cntx = j9.x;
+  m3();
   s3();
 
   k4('#999999');
@@ -811,44 +811,44 @@ function c3(night) {
 
   var poleWidth = 7;
 
-  m2(40, 150, poleWidth, 300);
+  m0(40, 150, poleWidth, 300);
   k3();
-  t9(70, 150, 30, PI, -PI / 2 );
-  o9(70, 150 - 30 + poleWidth);
-  t9(70, 150, 30 - poleWidth, -PI / 2, PI, true );
-  o9(70 - 30, 150);
-  s2();
+  t4(70, 150, 30, PI, -PI / 2 );
+  o8(70, 150 - 30 + poleWidth);
+  t4(70, 150, 30 - poleWidth, -PI / 2, PI, true );
+  o8(70 - 30, 150);
+  s9();
 
-  m2(70, 150 - 30, 70, poleWidth);
-  m2(130, 150 - 30 - 1, 35, 6);
+  m0(70, 150 - 30, 70, poleWidth);
+  m0(130, 150 - 30 - 1, 35, 6);
 
   k4('#aaaaaa');
   if(night) {
     k4('#777777');
   }
-  m2(40 + poleWidth - 4, 150, 2, 300);
-  m2(70, 150 - 30 + poleWidth - 4, 70, 2);
+  m0(40 + poleWidth - 4, 150, 2, 300);
+  m0(70, 150 - 30 + poleWidth - 4, 70, 2);
 
   k3();
-  t9(70, 150, 30 - poleWidth + 4, PI, -PI / 2 );
-  o9(70, 150 - 30 + poleWidth);
-  t9(70, 150, 30 - poleWidth, -PI / 2, PI, true );
-  o9(70 - 30, 150);
-  s2();
+  t4(70, 150, 30 - poleWidth + 4, PI, -PI / 2 );
+  o8(70, 150 - 30 + poleWidth);
+  t4(70, 150, 30 - poleWidth, -PI / 2, PI, true );
+  o8(70 - 30, 150);
+  s9();
 
   k4('#aaaaaa');
   if(night) {
     k4('#999999');
   }
-  m2(40 + poleWidth - 2, 150, 2, 300);
-  m2(70, 150 - 30 + poleWidth - 2, 70, 2);
+  m0(40 + poleWidth - 2, 150, 2, 300);
+  m0(70, 150 - 30 + poleWidth - 2, 70, 2);
 
   k3();
-  t9(70, 150, 30 - poleWidth + 2, PI, -PI / 2 );
-  o9(70, 150 - 30 + poleWidth);
-  t9(70, 150, 30 - poleWidth, -PI / 2, PI, true );
-  o9(70 - 30, 150);
-  s2();
+  t4(70, 150, 30 - poleWidth + 2, PI, -PI / 2 );
+  o8(70, 150 - 30 + poleWidth);
+  t4(70, 150, 30 - poleWidth, -PI / 2, PI, true );
+  o8(70 - 30, 150);
+  s9();
 
 
   if(night) {
@@ -856,22 +856,22 @@ function c3(night) {
   }
 
   k4('#ffffff');
-  m2(128, 150 - 30 + 4, 38, 12);
+  m0(128, 150 - 30 + 4, 38, 12);
 
   if(night) {
     g1(0.8);
     cntx.globalCompositeOperation = 'lighter';
 
     cntx.filter = 'blur(4px)';    
-    m2(123, 150 - 30 +3, 44, 18);  
+    m0(123, 150 - 30 +3, 44, 18);  
     g1(1);
   }
 
 //  cntx.filter = null;
-//  cntx.globalCompositeOperation = 'u6-over';
+//  cntx.globalCompositeOperation = 'u5-over';
 
-  a7 = q4();
-  a5 = q4(1);
+  a7 = q3();
+  a5 = q3(1);
   n0();
 
 }
@@ -886,7 +886,7 @@ function i0() {
   gradient.addColorStop(1, "#033d5e");
 
   k4(gradient);//'#00111e';
-  m2(0, 0, b4, a9);
+  m0(0, 0, b4, a9);
 
 
   var hmTimes = Math.round(xMax + yMax);  
@@ -903,7 +903,7 @@ function i0() {
       cntx.shadowColor = "white";
     }
     k4( "hsla("+randomHue+", 30%, 80%, ."+randomOpacityOne+randomOpacityTwo+")" );
-    m2(randomX, randomY, randomSize, randomSize);
+    m0(randomX, randomY, randomSize, randomSize);
   }
 }
 
@@ -914,17 +914,17 @@ function createLeaf(s) {
   k4(s);
   k3();
 
-  t9(3, 7, 3, PI / 2, PI );
-  t9(10, 7, 10, PI, PI * 1.24);
-  t9(-4.7, 7, 10, PI * 1.76, 0);
-  t9(2.3, 7, 3, 0, PI / 2 );
-  s2();  
+  t4(3, 7, 3, PI / 2, PI );
+  t4(10, 7, 10, PI, PI * 1.24);
+  t4(-4.7, 7, 10, PI * 1.76, 0);
+  t4(2.3, 7, 3, 0, PI / 2 );
+  s9();  
 }
 
 function j5() {
-  k9();
-  cntx = j8.x;
-  var canvas = j8.c;
+  m3();
+  cntx = j9.x;
+  var canvas = j9.c;
   cntx.save();
 
 
@@ -961,14 +961,14 @@ function j5() {
       // draw the stem
       if(r9() > 0.5) {
         k4('#44aa55');
-        m2(x, y, 2, height);
+        m0(x, y, 2, height);
         k4('#66cc88');
-        m2(x, y, 1, height);
+        m0(x, y, 1, height);
       } else {
         k4('#449955');
-        m2(x, y, 2, height);
+        m0(x, y, 2, height);
         k4('#66aa88');
-        m2(x, y, 1, height);        
+        m0(x, y, 1, height);        
       }
 
       var flower = m8(2) * 20;
@@ -977,13 +977,13 @@ function j5() {
       var dstY = y - 6;
       s3();
       j4(dstX + 3, dstY);
-      q1(0.3);
+      p9(0.3);
       i5(canvas, 0, flower, 6, 11, 0, 0, 6, 11);
       n0();
 
       s3();
       j4(dstX - 3, dstY + 1);
-      q1(-0.3);
+      p9(-0.3);
       i5(canvas, 0, flower, 6, 11, 0, 0, 6, 11);
       n0();
 
@@ -994,14 +994,14 @@ function j5() {
 
       s3();
       j4(dstX + 6, dstY + 10);
-      q1(0.6);//Math.random() * Math.PI * 2);
+      p9(0.6);//Math.random() * Math.PI * 2);
       i5(canvas, 0, 60, 6, 11, 0, 0, 6, 11);
       n0();
     }
   }
 
   cntx.clearRect(0, 0, 22, 300);
-  e8 = q4();
+  e8 = q3();
 
 }
 
@@ -1010,22 +1010,22 @@ function o7(points, color) {
   k4(color);
   p0(points[0], points[1]);
   for(var i = 2; i < points.length; i+= 2) {
-    o9(points[i], points[i+1]);
+    o8(points[i], points[i+1]);
   }
   k0();
-  s2();
+  s9();
 }
 
 function drawLine(x1, y1, x2, y2) {
   k3();
   p0(x1, y1);
-  o9(x2, y2);
+  o8(x2, y2);
   cntx.stroke();
 }
 
-function r2() {
-  k9();
-  cntx = j8.x;
+function r1() {
+  m3();
+  cntx = j9.x;
 
   // car tyre
   var points = [
@@ -1037,7 +1037,7 @@ function r2() {
     46, 213,
     47, 205
   ];
-  o7(points,r5);
+  o7(points,r4);
 
   // car tyre
   var points = [
@@ -1048,7 +1048,7 @@ function r2() {
     265, 197,
     268, 191
   ];
-  o7(points,r5);
+  o7(points,r4);
   
 
   // car body
@@ -1126,7 +1126,7 @@ function r2() {
 
 
   
-  // windu1
+  // windu6
   var points = [
     42, 86,
     260, 79,
@@ -1152,7 +1152,7 @@ function r2() {
   ];
   o7(points, '#95eef7');
 
-  // windu1
+  // windu6
   var points = [
     27, 83,
     33, 77,
@@ -1161,7 +1161,7 @@ function r2() {
   ];
   o7(points,'#4773dd');
 
-  // windu1
+  // windu6
   var points = [
     19, 61,
     46, 17, 
@@ -1170,7 +1170,7 @@ function r2() {
   ];
   o7(points,'#4773dd');
 
-  // windu1
+  // windu6
   var points = [
     3, 99,
     10, 113,
@@ -1239,14 +1239,14 @@ function r2() {
   o7(points,'#a9fb78');  
 
 
-  f1 = q4(0);
-  d3 = q4(1);
+  f1 = q3(0);
+  d3 = q3(1);
 }
 
 function p6() {
-  k9();
-  cntx = j8.x;
-  var canvas = j8.c;
+  m3();
+  cntx = j9.x;
+  var canvas = j9.c;
 
 
  // car body bottom
@@ -1320,7 +1320,7 @@ o7(points, '#a9fb78');
   o7(points, '#d65d5b');
   
   
-  // windu1
+  // windu6
   points = [
     32, 82,
     143, 82,
@@ -1352,7 +1352,7 @@ o7(points, '#a9fb78');
     56, 202,
     58, 197
   ];
-  o7(points, r5);
+  o7(points, r4);
 
   // strip under lights
   var points = [
@@ -1393,23 +1393,23 @@ o7(points, '#a9fb78');
   s3();
   cntx.scale(-1, 1);
 
-  i5(j8.c, 0, 0, 143, 210,
+  i5(j9.c, 0, 0, 143, 210,
     -143 -132, 0, 143, 210);
   n0();
 
-  b7 = q4(0);
+  b7 = q3(0);
 }
 
 function o6() {
-  r2();
+  r1();
   p6();
 }
 
 /*
 function p7() {
-  k9();
-  cntx = j8.x;
-  var canvas = j8.c;
+  m3();
+  cntx = j9.x;
+  var canvas = j9.c;
 
   var colours = [
     '#002205',
@@ -1428,7 +1428,7 @@ function p7() {
         var dstY = cY + radius * M.sin(angle);
         s3();
         j4(dstX, dstY);
-        q1(r9() * PI * 2);
+        p9(r9() * PI * 2);
         i5(canvas, 0, 0, 6, 11, 0, 0, 6, 11);
         n0();
       }
@@ -1442,7 +1442,7 @@ function p7() {
         var dstY = cY + radius * sin(angle);
         s3();
         j4(dstX, dstY);
-        q1(r9() * PI * 2);
+        p9(r9() * PI * 2);
         i5(canvas, 0, 0, 6, 11, 0, 0, 6, 11);
         n0();
       }
@@ -1457,7 +1457,7 @@ function p7() {
         var dstY = cY + radius * sin(angle);
         s3();
         j4(dstX, dstY);
-        q1(r9() * PI * 2);
+        p9(r9() * PI * 2);
         i5(canvas, 0, 0, 6, 11, 0, 0, 6, 11);
         n0();
 
@@ -1476,7 +1476,7 @@ function g4(a,b,percent) {
   return a + (b-a)*percent                                        
 }
 
-function l1(start, increment, max) {
+function l0(start, increment, max) {
   var result = start + increment;
 
   while (result >= max)
@@ -1487,11 +1487,11 @@ function l1(start, increment, max) {
 }
 
 
-// the title u1
+// the title u6
 
-var m5 = function(canvas, t2) {
+var m5 = function(canvas, t6) {
   this.canvas = canvas;
-  this.t2 = t2;
+  this.t6 = t6;
 
 }
 
@@ -1499,7 +1499,7 @@ m5.prototype = {
 
   init: function() {
     v0.reset();
-    v5.buildv30();
+    v3.buildv20();
   },
 
   keyDown: function(e) {
@@ -1513,56 +1513,56 @@ m5.prototype = {
   },
 
   p5: function() {
-    n2 = true;
+    n3 = true;
     var maxy          = height;    
     v0.y = 400;
     v0.depth = 0.83909963117728;
     v0.x = 0;
     
-    var baseSegment   = v5.n1(v0.z);
-    var v0Percent = b2(v0.z, v3.t4Length);
+    var baseSegment   = v3.n1(v0.z);
+    var v0Percent = b2(v0.z, v2.u0Length);
     
-    v0.y = 500 + g4(baseSegment.p1.v4.y, 
-      baseSegment.p3.v4.y, 
+    v0.y = 500 + g4(baseSegment.p1.v8.y, 
+      baseSegment.p3.v8.y, 
       v0Percent);
 
-    var n, i, t4, car, sprite, spriteScale, spriteX, spriteY;
+    var n, i, u0, car, sprite, spriteScale, spriteX, spriteY;
     var dx = 0;
-    for(n = 0 ; n < v0.l5 ; n++) {
-      t4 = v5.o8((baseSegment.index + n) % v5.o8Count() );
-      t4.u9 = t4.index < baseSegment.index;
-      t4.clip   = maxy;
-      t4.clip   = 0;
+    for(n = 0 ; n < v0.l3 ; n++) {
+      u0 = v3.o9((baseSegment.index + n) % v3.o9Count() );
+      u0.u9 = u0.index < baseSegment.index;
+      u0.clip   = maxy;
+      u0.clip   = 0;
   
-      v0.t7(t4.p1,  0, t4.u9, width, height, q8);
-      v0.t7(t4.p2,  0, t4.u9, width, height, q8);
-      v0.t7(t4.p3,  0, t4.u9,  width, height, q8);
-      v0.t7(t4.p4,  0, t4.u9,  width, height, q8);
+      v0.t2(u0.p1,  0, u0.u9, width, height, q4);
+      v0.t2(u0.p2,  0, u0.u9, width, height, q4);
+      v0.t2(u0.p3,  0, u0.u9,  width, height, q4);
+      v0.t2(u0.p4,  0, u0.u9,  width, height, q4);
   
   
   
-      if ((t4.p1.v0.z <= v0.depth)         || // behind us
-          (t4.p3.u1.y >= t4.p1.u1.y) || // back face cull
-          (t4.p3.u1.y >= maxy))                  // clip by (already rendered) hill
+      if ((u0.p1.v0.z <= v0.depth)         || // behind us
+          (u0.p3.u6.y >= u0.p1.u6.y) || // back face cull
+          (u0.p3.u6.y >= maxy))                  // clip by (already rendered) hill
         continue;
 
-        k2(t4);
-      maxy = t4.p1.u1.y;
+        k2(u0);
+      maxy = u0.p1.u6.y;
     }
   
   },
 
 
   render: function(dt) {
-    cntx = this.t2;
-    var t = l6();
+    cntx = this.t6;
+    var t = l2();
 
-    k4(r5);
-    m2(0, 0, this.canvas.width, this.canvas.height);
+    k4(r4);
+    m0(0, 0, this.canvas.width, this.canvas.height);
     for(var i = 0; i < 30; i++) {
       var fontSize = 100 + i * 10;
-      t2.font = 'italic ' + fontSize + 'px ' + q7;
-      t2.fontStyle = 'italic';
+      t6.font = 'italic ' + fontSize + 'px ' + q6;
+      t6.fontStyle = 'italic';
       var col = 80 + (i * 4);
       col = (col + t / 6) % 200;
       
@@ -1571,15 +1571,15 @@ m5.prototype = {
       }
 
       k4('rgb(' + col + ',' + col + ',' + col + ')');
-      l2("racer", 400 - i * 11, 300- i);
+      k9("racer", 400 - i * 11, 300- i);
     }
 
-    t2.font = '44px ' + q7;
-    l2("Arrow keys to drive, x for Turbo, z for Handv2", 38, 570);
-    l2("x To Start", 423, 460);
+    t6.font = '44px ' + q6;
+    k9("Arrow keys to drive, x for Turbo, z for Handbrake", 38, 570);
+    k9("x To Start", 423, 460);
 
 
-    v0.z = l1(v0.z, dt * 120, v5.r1());
+    v0.z = l0(v0.z, dt * 120, v3.r2());
     this.p5();
 
   }
@@ -1591,12 +1591,12 @@ var u3 = function() {
 
   this.y = 0;
   this.z = 0;
-  this.l5 = 300;  
+  this.l3 = 300;  
   this.depth = 0;           
   this.fogDensity =  25;
-  this.t6 = 0;         
-  this.u0 = 740;
-  this.t6 = 700;
+  this.t7 = 0;         
+  this.t9 = 740;
+  this.t7 = 700;
 
 
 }
@@ -1604,51 +1604,51 @@ var u3 = function() {
 u3.prototype = {
   reset: function() {
     this.depth            = 1 / Math.tan( ( this.fieldOfView / 2 ) * Math.PI/180);
-    this.u0 = 740;
-    this.t6 = 700;
+    this.t9 = 740;
+    this.t7 = 700;
   
   },
 
-// t4 3081
-  t7: function(p, v0XOffset, u9, width, height) {
+// u0 3081
+  t2: function(p, v0XOffset, u9, width, height) {
     var v0Z = this.z;
     if(u9) {
-      v0Z -= v5.r1();
+      v0Z -= v3.r2();
     }
     var v0X = this.x + v0XOffset;
 
-    p.v0.x     = (p.v4.x || 0) - v0X;
-    p.v0.y     = (p.v4.y || 0) - this.y;
-    p.v0.z     = (p.v4.z || 0) - v0Z;//this.z;
-    p.u1.scale = this.depth / p.v0.z;
+    p.v0.x     = (p.v8.x || 0) - v0X;
+    p.v0.y     = (p.v8.y || 0) - this.y;
+    p.v0.z     = (p.v8.z || 0) - v0Z;//this.z;
+    p.u6.scale = this.depth / p.v0.z;
 
-    p.u1.x     = Math.round((width/2)  + (p.u1.scale * p.v0.x  * width/2));
-    p.u1.y     = Math.round((height/2) - (p.u1.scale * p.v0.y  * height/2));
+    p.u6.x     = Math.round((width/2)  + (p.u6.scale * p.v0.x  * width/2));
+    p.u6.y     = Math.round((height/2) - (p.u6.scale * p.v0.y  * height/2));
   
   },
 
 
   update: function(dt) {
-    this.z = cars[0].z - this.t6;
+    this.z = cars[0].z - this.t7;
     if(this.z < 0) {
-      this.z += v5.r1();
+      this.z += v3.r2();
     }
 
     v0.x = cars[0].x + cars[0].width/2;
 
 
-    var u4Segment = v5.n1(cars[0].z);
-    var u4Percent = b2(cars[0].z, v3.t4Length);
+    var u1Segment = v3.n1(cars[0].z);
+    var u1Percent = b2(cars[0].z, v2.u0Length);
     
 
-    this.y = this.u0 + g4(u4Segment.p1.v4.y, 
-      u4Segment.p3.v4.y, 
-      u4Percent);
+    this.y = this.t9 + g4(u1Segment.p1.v8.y, 
+      u1Segment.p3.v8.y, 
+      u1Percent);
 
   }
 }
 
-// draw all the race stuff to the u1                 
+// draw all the race stuff to the u6                 
 var width  = 1024;
 var height  = 768;
 var resolution = height/480;
@@ -1661,145 +1661,145 @@ var i4      = 0.003;
 var h3      = 0;  
 var h4     = 0;   
 var h6     = 0;   
-var n2 = false;
+var n3 = false;
 var lastDriftDraw = 0;
 
-// draw a t0
+// draw a t8
 function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
-  var ctx = t2;
+  var ctx = t6;
   k4(color);
   k3();
   p0(x1, y1);
-  o9(x2, y2);
-  o9(x3, y3);
-  o9(x4, y4);
+  o8(x2, y2);
+  o8(x3, y3);
+  o8(x4, y4);
   k0();
-  if(n2) {
-    g0(p8);
+  if(n3) {
+    g0(q2);
     p2();
   } else {
-    s2();
+    s9();
   }
 }
 
-  // draw a t4, coordinates passed in are u1 coordinates
-  function k2(t4) {
+  // draw a u0, coordinates passed in are u6 coordinates
+  function k2(u0) {
     var lanew1, lanew2, lanex1, lanex2, lane;
-    var dark = Math.floor(t4.index/2) % 2;// (t4.index / 2) % 2;
+    var dark = Math.floor(u0.index/2) % 2;// (u0.index / 2) % 2;
 
-    var w0Color = e4;
+    var v9Color = e4;
     var landColor = d4;
     if(dark) {
-      w0Color = g2;
+      v9Color = g2;
       landColor = g3;
     }
 
     // draw side land
-    if(!n2) {
+    if(!n3) {
       k4(landColor);
-      m2(0, t4.p3.u1.y, width, t4.p1.u1.y - t4.p3.u1.y);
+      m0(0, u0.p3.u6.y, width, u0.p1.u6.y - u0.p3.u6.y);
     }
 
-    // draw w0
-    var r1 = t4.r3 * t4.p1.u1.scale * width / 2;
-    var r2 = t4.r3 * t4.p4.u1.scale * width / 2;
+    // draw v9
+    var r1 = u0.r0 * u0.p1.u6.scale * width / 2;
+    var r2 = u0.r0 * u0.p4.u6.scale * width / 2;
     j6(
-                    t4.p1.u1.x - r1, 
-                    t4.p1.u1.y, 
-                    t4.p1.u1.x, 
-                    t4.p1.u1.y, 
-                    t4.p4.u1.x, 
-                    t4.p4.u1.y, 
-                    t4.p4.u1.x - r2, 
-                    t4.p4.u1.y, 
-                    w0Color);
+                    u0.p1.u6.x - r1, 
+                    u0.p1.u6.y, 
+                    u0.p1.u6.x, 
+                    u0.p1.u6.y, 
+                    u0.p4.u6.x, 
+                    u0.p4.u6.y, 
+                    u0.p4.u6.x - r2, 
+                    u0.p4.u6.y, 
+                    v9Color);
 
     j6(
-      t4.p2.u1.x, 
-      t4.p2.u1.y, 
-      t4.p2.u1.x + r1, 
-      t4.p2.u1.y, 
-      t4.p3.u1.x + r2, 
-      t4.p3.u1.y, 
-      t4.p3.u1.x, 
-      t4.p3.u1.y, 
-      w0Color);
+      u0.p2.u6.x, 
+      u0.p2.u6.y, 
+      u0.p2.u6.x + r1, 
+      u0.p2.u6.y, 
+      u0.p3.u6.x + r2, 
+      u0.p3.u6.y, 
+      u0.p3.u6.x, 
+      u0.p3.u6.y, 
+      v9Color);
   
     // road 
-    if(!n2) {
+    if(!n3) {
       var colour = n9;
-      if(t4.index == 0) {
-        colour = p8;
+      if(u0.index == 0) {
+        colour = q2;
       }
       j6(
-                    t4.p1.u1.x,    
-                    t4.p1.u1.y, 
-                    t4.p2.u1.x, 
-                    t4.p2.u1.y, 
-                    t4.p3.u1.x, 
-                    t4.p3.u1.y, 
-                    t4.p4.u1.x,    
-                    t4.p4.u1.y, 
+                    u0.p1.u6.x,    
+                    u0.p1.u6.y, 
+                    u0.p2.u6.x, 
+                    u0.p2.u6.y, 
+                    u0.p3.u6.x, 
+                    u0.p3.u6.y, 
+                    u0.p4.u6.x,    
+                    u0.p4.u6.y, 
                     colour);
     }
 
 
-    var l1 = 50 * t4.p1.u1.scale * width / 2;
-    var l2 = 50 * t4.p4.u1.scale * width / 2;
+    var l1 = 50 * u0.p1.u6.scale * width / 2;
+    var l2 = 50 * u0.p4.u6.scale * width / 2;
 
 
     // lines on side of road
-    lanex1 = t4.p1.u1.x + 100 * t4.p1.u1.scale * width / 2;
-    lanex2 = t4.p4.u1.x + 100 * t4.p4.u1.scale * width / 2;
+    lanex1 = u0.p1.u6.x + 100 * u0.p1.u6.scale * width / 2;
+    lanex2 = u0.p4.u6.x + 100 * u0.p4.u6.scale * width / 2;
 
     j6(
         lanex1 - l1/2, 
-        t4.p1.u1.y, 
+        u0.p1.u6.y, 
         lanex1 + l1/2, 
-        t4.p1.u1.y, 
+        u0.p1.u6.y, 
         lanex2 + l2/2, 
-        t4.p3.u1.y, 
+        u0.p3.u6.y, 
         lanex2 - l2/2, 
-        t4.p3.u1.y, 
+        u0.p3.u6.y, 
         c6);
 
-    lanex1 = t4.p2.u1.x - 100 * t4.p1.u1.scale * width / 2;
-    lanex2 = t4.p3.u1.x - 100 * t4.p4.u1.scale * width / 2;
+    lanex1 = u0.p2.u6.x - 100 * u0.p1.u6.scale * width / 2;
+    lanex2 = u0.p3.u6.x - 100 * u0.p4.u6.scale * width / 2;
 
     j6(
         lanex1 - l1/2, 
-        t4.p1.u1.y, 
+        u0.p1.u6.y, 
         lanex1 + l1/2, 
-        t4.p1.u1.y, 
+        u0.p1.u6.y, 
         lanex2 + l2/2, 
-        t4.p3.u1.y, 
+        u0.p3.u6.y, 
         lanex2 - l2/2, 
-        t4.p3.u1.y, 
+        u0.p3.u6.y, 
         c6 );
       
     lanes = 2;
     // lane marker
-    if (dark) { //t4.color.p4) {
-      lanew1 = (t4.p2.u1.x - t4.p1.u1.x) / lanes;
-      lanew2 = (t4.p3.u1.x - t4.p4.u1.x) / lanes;
-      lanex1 = t4.p1.u1.x + lanew1;
-      lanex2 = t4.p4.u1.x + lanew2;
+    if (dark) { //u0.color.p1) {
+      lanew1 = (u0.p2.u6.x - u0.p1.u6.x) / lanes;
+      lanew2 = (u0.p3.u6.x - u0.p4.u6.x) / lanes;
+      lanex1 = u0.p1.u6.x + lanew1;
+      lanex2 = u0.p4.u6.x + lanew2;
       for(lane = 1 ; lane < lanes ; lanex1 += lanew1, lanex2 += lanew2, lane++) {
         j6(
           lanex1 - l1/2, 
-          t4.p1.u1.y, 
+          u0.p1.u6.y, 
           lanex1 + l1/2, 
-          t4.p1.u1.y, 
+          u0.p1.u6.y, 
           lanex2 + l2/2, 
-          t4.p3.u1.y, 
+          u0.p3.u6.y, 
           lanex2 - l2/2, 
-          t4.p3.u1.y, 
+          u0.p3.u6.y, 
           c6);
       }
     }
 
-    if(q0 != 0) {
-      q3(0, t4.p1.u1.y, width, t4.p3.u1.y-t4.p1.u1.y, t4.fog);
+    if(q1 != 0) {
+      q9(0, u0.p1.u6.y, width, u0.p3.u6.y-u0.p1.u6.y, u0.fog);
     }
   }
 
@@ -1816,24 +1816,24 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
     var imageW = b4/2;
     var imageH = a9;
 
-    var u6X = Math.floor(b4 * rotation);
-    var u6Y = 0;
-    var u6W = Math.min(imageW, b4-u6X);
-    var u6H = imageH;
+    var u5X = Math.floor(b4 * rotation);
+    var u5Y = 0;
+    var u5W = Math.min(imageW, b4-u5X);
+    var u5H = imageH;
     
     var destX = 0;
     var destY = offset;
-    var destW = Math.floor(width * (u6W/imageW));
+    var destW = Math.floor(width * (u5W/imageW));
     var destH = height;
 
-    t2.drawImage(background.c, u6X, u6Y, u6W, u6H, destX, destY, destW, destH);
-    if (u6W < imageW)
-      t2.drawImage(background.c, 0, u6Y, imageW-u6W, u6H, destW-1, destY, width-destW, destH);
+    t6.drawImage(background.c, u5X, u5Y, u5W, u5H, destX, destY, destW, destH);
+    if (u5W < imageW)
+      t6.drawImage(background.c, 0, u5Y, imageW-u5W, u5H, destW-1, destY, width-destW, destH);
   }
 
   //---------------------------------------------------------------------------
 
-  function k8(sprite, scale, destX, destY, clipY, fog) {
+  function m1(sprite, scale, destX, destY, clipY, fog) {
 
     var destW  = (sprite.w * scale * width/2) ;
     var destH  = (sprite.h * scale * width/2);
@@ -1847,7 +1847,7 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
     var clipH = clipY ? Math.max(0, destY+destH-clipY) : 0;
     if (clipH < destH) {
 
-      t2.drawImage(j9, 
+      t6.drawImage(j8, 
         sprite.x, 
         sprite.y, 
         sprite.w, 
@@ -1857,8 +1857,8 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
         destW, 
         destH - clipH);
 
-      if(fog !== false && q0 != 0) {
-        q3(destX, destY, destW, destH, fog);//ctx, x, y, width, height, fog) {
+      if(fog !== false && q1 != 0) {
+        q9(destX, destY, destW, destH, fog);//ctx, x, y, width, height, fog) {
       }
     }
 
@@ -1869,7 +1869,7 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
     return 1 / (Math.pow(Math.E, (distance * distance * density))); 
   }
 
-  function k7(scale, destX, destY, steer, updown, u4ShadowY) {
+  function m2(scale, destX, destY, steer, updown, u1ShadowY) {
 
     var sprite;
     if(steer < 0) {
@@ -1880,19 +1880,19 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
       sprite = b7;
     }
 
-    var spriteScale = u4.width * scale / sprite.w;
+    var spriteScale = u1.width * scale / sprite.w;
 
     var i,j;
 
 
     // ************* DRAW SLIP STREAM ********** //
-    if(u4.h2 > 0 || u4.p9 > 0) {
+    if(u1.h2 > 0 || u1.p8 > 0) {
 
       cars[0].b6();
 
       var amount = 0;
-      if(u4.h2 <= 0) {
-        amount = u4.p9 ;
+      if(u1.h2 <= 0) {
+        amount = u1.p8 ;
         while(amount > 1) {
           amount -= 1;
         }        
@@ -1902,13 +1902,13 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
       for(i = 0; i < cars[0].f2.length; i++) {
         var points = cars[0].f2[i];
         k3();
-        p0(points[0].u1.x, points[0].u1.y);
+        p0(points[0].u6.x, points[0].u6.y);
         for(j = 1; j < points.length; j++) {
-          o9(points[j].u1.x, points[j].u1.y);
+          o8(points[j].u6.x, points[j].u6.y);
         }
 
-        k4(p8);
-        s2();
+        k4(q2);
+        s9();
 
       }
       g1(1);
@@ -1917,42 +1917,42 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
 
     // ***** DRAW SHADOW IF IN AIR *******/
 /*
-    if(u4ShadowY != destY) {
+    if(u1ShadowY != destY) {
       g1(0.4);
         var destW  = (sprite.w * spriteScale * width/2) ;
-        j6(destX, u4ShadowY,
-          destX + destW, u4ShadowY,
-          destX + 0.7 * destW, u4ShadowY - 180,
-          destX + 0.3 * destW, u4ShadowY - 180,
+        j6(destX, u1ShadowY,
+          destX + destW, u1ShadowY,
+          destX + 0.7 * destW, u1ShadowY - 180,
+          destX + 0.3 * destW, u1ShadowY - 180,
           
-          r5);
+          r4);
       g1(1);      
     }
     */
     // ***** DRAW CAR SPRITE ****** /
 
     
-    k8(
+    m1(
       sprite, 
       spriteScale, 
       destX, 
-      destY + u4.u7, 
+      destY + u1.u8, 
       false);
       
 
     // ************** DRAW DRIFT *************** //
-    if( u4.m7 > 0) {
-      var time = l6();
+    if( u1.m6 > 0) {
+      var time = l2();
       if(time - lastDriftDraw > 100) {
 
         g1(0.8);
-        k4(p8);
+        k4(q2);
         var x = destX + 12;
         var y = destY - 4;
-        m2(x, y, 50, 10)
+        m0(x, y, 50, 10)
 
         x = destX + 260;
-        m2(x, y, 50, 10)
+        m0(x, y, 50, 10)
 
         g1(1);
         lastDriftDraw = time;
@@ -1960,7 +1960,7 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
     }
 
     //  ******  DRAW TURBO  ***** /
-    if(u4.v7) {
+    if(u1.v5) {
       var centreX = destX + 82;
       var centreY = destY - 10;
       e6(centreX, centreY, 10,'#dd9925' );
@@ -1972,228 +1972,228 @@ function j6(x1, y1, x2, y2, x3, y3, x4, y4, color) {
   }
 
 
-  function q3(x, y, width, height, fog) {
+  function q9(x, y, width, height, fog) {
     if (fog < 1) {
       g1(1-fog)
-      k4(q0);
-      m2(x, y, width, height);
+      k4(q1);
+      m0(x, y, width, height);
       g1(1);
     }
   }
 
 
-  function l9() {
-    cntx = t2;
+  function l7() {
+    cntx = t6;
     
 
-    var baseSegment   = v5.n1(v0.z);
+    var baseSegment   = v3.n1(v0.z);
   
-    var basePercent   = b2(v0.z, v3.t4Length);
-    var u4Segment = v5.n1(u4.z);
-    var u4Percent = b2(u4.z, v3.t4Length);
-    var u4Y       = g4(u4Segment.p1.v4.y, u4Segment.p3.v4.y, u4Percent);
+    var basePercent   = b2(v0.z, v2.u0Length);
+    var u1Segment = v3.n1(u1.z);
+    var u1Percent = b2(u1.z, v2.u0Length);
+    var u1Y       = g4(u1Segment.p1.v8.y, u1Segment.p3.v8.y, u1Percent);
     var maxy          = height;
     var x  = 0;
-    var dx = - (baseSegment.v6 * basePercent);
-  //  t2.clearRect(0, 0, width, height);
+    var dx = - (baseSegment.v4 * basePercent);
+  //  t6.clearRect(0, 0, width, height);
   
-    t2.fillStyle = '#4576aa';
-    m2(0, 0, width, height);
+    t6.fillStyle = '#4576aa';
+    m0(0, 0, width, height);
   
   
     // render background hills, sky, trees
-    e0(e3, width, height, h3,  resolution * i2  * u4Y);
-    e0(e2, width, height, h4, resolution * i3 * u4Y);
-    e0(e1, width, height, h6, resolution * i4 * u4Y);
+    e0(e3, width, height, h3,  resolution * i2  * u1Y);
+    e0(e2, width, height, h4, resolution * i3 * u1Y);
+    e0(e1, width, height, h6, resolution * i4 * u1Y);
   
   
     /*
       front to back to render the road
-      back to front to render the t8
+      back to front to render the t1
     */
   
   
-    // render t4s from to back
-    var n, i, t4, car, sprite, spriteScale, spriteX, spriteY;
-    for(n = 0 ; n < v0.l5 ; n++) {
+    // render u0s from to back
+    var n, i, u0, car, sprite, spriteScale, spriteX, spriteY;
+    for(n = 0 ; n < v0.l3 ; n++) {
   
-  //    t4        = t4s[(baseSegment.index + n) % t4s.length];
+  //    u0        = u0s[(baseSegment.index + n) % u0s.length];
   
-      t4 = v5.o8((baseSegment.index + n) % v5.o8Count() );
-      t4.u9 = t4.index < baseSegment.index;
+      u0 = v3.o9((baseSegment.index + n) % v3.o9Count() );
+      u0.u9 = u0.index < baseSegment.index;
   
-      t4.fog    = b3(n/v0.l5, v0.fogDensity);
-      t4.clip   = maxy;
+      u0.fog    = b3(n/v0.l3, v0.fogDensity);
+      u0.clip   = maxy;
   
-      v0.t7(t4.p1,  - x,      t4.u9, width, height);
-      v0.t7(t4.p2,  - x,      t4.u9, width, height);
-      v0.t7(t4.p3,  - x - dx, t4.u9,  width, height);
-      v0.t7(t4.p4,  - x - dx, t4.u9,  width, height);
+      v0.t2(u0.p1,  - x,      u0.u9, width, height);
+      v0.t2(u0.p2,  - x,      u0.u9, width, height);
+      v0.t2(u0.p3,  - x - dx, u0.u9,  width, height);
+      v0.t2(u0.p4,  - x - dx, u0.u9,  width, height);
   
-      // do fake v6d road
+      // do fake v4d road
       x  = x + dx;
-      dx = dx + t4.v6;
+      dx = dx + u0.v4;
   
-      // cull t4s if behind, facing other way or clipped
-      if ((t4.p1.v0.z <= v0.depth)         || 
-          (t4.p3.u1.y >= t4.p1.u1.y) || 
-          (t4.p3.u1.y >= maxy))                  
+      // cull u0s if behind, facing other way or clipped
+      if ((u0.p1.v0.z <= v0.depth)         || 
+          (u0.p3.u6.y >= u0.p1.u6.y) || 
+          (u0.p3.u6.y >= maxy))                  
         continue;
   
 
-      k2(t4);
-      maxy = t4.p1.u1.y;
+      k2(u0);
+      maxy = u0.p1.u6.y;
     }
   
     // draw opponent cars from furthest to closest
-    // opponents still in view but closer than the u4 to the v0 should be drawn after the u4..
-    for(n = (v0.l5-1) ; n > 0 ; n--) {
-      t4 = v5.o8((baseSegment.index + n) % v5.o8Count());
+    // opponents still in view but closer than the u1 to the v0 should be drawn after the u1..
+    for(n = (v0.l3-1) ; n > 0 ; n--) {
+      u0 = v3.o9((baseSegment.index + n) % v3.o9Count());
   
-      // draw cars in the t4
-      for(i = 0 ; i < t4.cars.length ; i++) {
-        car         = t4.cars[i];
+      // draw cars in the u0
+      for(i = 0 ; i < u0.cars.length ; i++) {
+        car         = u0.cars[i];
         
         if(car.index !== 0) {
           sprite      = car.sprite;
-          var scale = g4(t4.p1.u1.scale, t4.p3.u1.scale, car.percent);
+          var scale = g4(u0.p1.u6.scale, u0.p3.u6.scale, car.percent);
   
           spriteX     = g4(
-            (t4.p1.u1.x + t4.p2.u1.x) / 2,     
-            (t4.p3.u1.x + t4.p4.u1.x) / 2,     
+            (u0.p1.u6.x + u0.p2.u6.x) / 2,     
+            (u0.p3.u6.x + u0.p4.u6.x) / 2,     
             car.percent) 
             + (scale * car.x * width/2);
   
-          spriteY     = g4(t4.p1.u1.y,     t4.p4.u1.y,     car.percent);
+          spriteY     = g4(u0.p1.u6.y,     u0.p4.u6.y,     car.percent);
   
 
           var sprite = b7;
           spriteScale = car.width * scale / sprite.w;
 
-          if(car.s1) {
+          if(car.s4) {
             sprite = f1;
-          } else if(car.q6) {
+          } else if(car.q8) {
             sprite = d3;
           } 
       
   
-          k8(
+          m1(
             sprite, 
             spriteScale, 
             spriteX, 
             spriteY, 
-            t4.clip,
-            t4.fog);
+            u0.clip,
+            u0.fog);
         }
       }
   
       // roadside objects
-      for(i = 0 ; i < t4.t8.length ; i++) {
-        sprite      = t4.t8[i];
-        spriteScale = t4.p1.u1.scale;
+      for(i = 0 ; i < u0.t1.length ; i++) {
+        sprite      = u0.t1[i];
+        spriteScale = u0.p1.u6.scale;
 
-        spriteX = t4.p1.u1.x - t4.p1.v4.x * t4.p1.u1.scale * width / 2
+        spriteX = u0.p1.u6.x - u0.p1.v8.x * u0.p1.u6.scale * width / 2
                   + spriteScale * sprite.x * width / 2;
 
 
-        spriteY     = t4.p1.u1.y;
+        spriteY     = u0.p1.u6.y;
   /*
-        sprite.u6.x = 0;
-        sprite.u6.y = 0;
-        sprite.u6.w = 200;
-        sprite.u6.h = 210;
+        sprite.u5.x = 0;
+        sprite.u5.y = 0;
+        sprite.u5.w = 200;
+        sprite.u5.h = 210;
   */
-        spriteScale = sprite.s  * spriteScale;//* 800 / sprite.u6.w;
+        spriteScale = sprite.s  * spriteScale;//* 800 / sprite.u5.w;
   
 
         
-        k8(
-          sprite.u6, 
+        m1(
+          sprite.u5, 
           spriteScale, 
           spriteX, 
           spriteY, 
-          t4.clip,
+          u0.clip,
           false);
           
 
 
 //-------- COLLISION DISPLAY ----------- //
-var destW  = (sprite.u6.w * spriteScale * width/2) ;
+var destW  = (sprite.u5.w * spriteScale * width/2) ;
 
 var offsetX = -0;//.5;
 var destX = spriteX + (destW * (offsetX || 0));
 
-spriteScale = t4.p1.u1.scale;        
-spriteScale = sprite.s * spriteScale;//800 * spriteScale / sprite.u6.w;
+spriteScale = u0.p1.u6.scale;        
+spriteScale = sprite.s * spriteScale;//800 * spriteScale / sprite.u5.w;
 
-var collisionx = (sprite.u6.cx ) * spriteScale * width / 2;
-var collisionw = sprite.u6.cw * spriteScale * width / 2;
+var collisionx = (sprite.u5.cx ) * spriteScale * width / 2;
+var collisionw = sprite.u5.cw * spriteScale * width / 2;
 spriteX = destX + collisionx;// + collisionx * spriteScale * width / 2;// + spriteScale * collisionx * width / 2;
 
-//t2.fillStyle = '#ff0000';
-//t2.fillRect(spriteX, spriteY - 10, collisionw, 10);              
+//t6.fillStyle = '#ff0000';
+//t6.fillRect(spriteX, spriteY - 10, collisionw, 10);              
 //-------- COLLISION DISPLAY END ----------- //
 
     }
   
-      if (t4 == u4Segment) {
-        var u4ScreenY = g4(u4Segment.p1.u1.y, u4Segment.p3.u1.y, u4Percent);
+      if (u0 == u1Segment) {
+        var u1ScreenY = g4(u1Segment.p1.u6.y, u1Segment.p3.u6.y, u1Percent);
         
   
-        u4ScreenY = (height / 2) 
-            - (v0.depth / v0.t6 * g4(u4Segment.p1.v0.y, 
-            u4Segment.p3.v0.y, u4Percent) * height/2);
+        u1ScreenY = (height / 2) 
+            - (v0.depth / v0.t7 * g4(u1Segment.p1.v0.y, 
+            u1Segment.p3.v0.y, u1Percent) * height/2);
 
-        var u4ShadowY = u4ScreenY;
+        var u1ShadowY = u1ScreenY;
   
-        if(cars[0].u0 > 0) {
-          u4ScreenY -= cars[0].u0 * v0.depth / v0.t6 * height / 2;
+        if(cars[0].t9 > 0) {
+          u1ScreenY -= cars[0].t9 * v0.depth / v0.t7 * height / 2;
         }
 
             
         var carX = width / 2;
-        var scale = g4(u4Segment.p1.u1.scale, u4Segment.p3.u1.scale, u4Percent);
+        var scale = g4(u1Segment.p1.u6.scale, u1Segment.p3.u6.scale, u1Percent);
   
   
           spriteX     = g4(
-            (u4Segment.p1.u1.x + u4Segment.p2.u1.x) / 2,     
-            (u4Segment.p3.u1.x + u4Segment.p4.u1.x) / 2,     
-            u4Percent) 
+            (u1Segment.p1.u6.x + u1Segment.p2.u6.x) / 2,     
+            (u1Segment.p3.u6.x + u1Segment.p4.u6.x) / 2,     
+            u1Percent) 
             + (scale * cars[0].x * width/2);
 
 
         var p = {
-          v4: {
-            x: u4.x,
-            y: u4.y,
-            z: u4.z
+          v8: {
+            x: u1.x,
+            y: u1.y,
+            z: u1.z
           },
           v0: {},
-          u1: {}
+          u6: {}
 
         };
 
-        v0.t7(p, 0, u4Segment.index < baseSegment.index, width, height);
+        v0.t2(p, 0, u1Segment.index < baseSegment.index, width, height);
   
-        carX = p.u1.x;
-        var u4Direction = 0;
-        if(u4.v9 > 0) {
-          if(u4.h8 != 0) {
-            u4Direction = u4.h8;
+        carX = p.u6.x;
+        var u1Direction = 0;
+        if(u1.v7 > 0) {
+          if(u1.h8 != 0) {
+            u1Direction = u1.h8;
           } else {
-            u4Direction = (u4.s1 ? -1 : u4.q6 ? 1 : 0);
+            u1Direction = (u1.s4 ? -1 : u1.q8 ? 1 : 0);
           }
         }
 
-        k7( 
-                      v0.depth / v0.t6,  // scale
+        m2( 
+                      v0.depth / v0.t7,  // scale
                       carX,//width/2,   // destx
-                      u4ScreenY,
-                      u4Direction,
-                      u4Segment.p3.v4.y - u4Segment.p1.v4.y,
-                      u4ShadowY);
+                      u1ScreenY,
+                      u1Direction,
+                      u1Segment.p3.v8.y - u1Segment.p1.v8.y,
+                      u1ShadowY);
         if(race.state == 4) {
-          t2.drawImage(v5.m6, -40, 200, 400, 400);
+          t6.drawImage(v3.m7, -40, 200, 400, 400);
         }
   
       }
@@ -2204,7 +2204,7 @@ spriteX = destX + collisionx;// + collisionx * spriteScale * width / 2;// + spri
 
 
 
-// the u4 car and the opponents car
+// the u1 car and the opponents car
 var Car = function() {
   var t = this;
 
@@ -2218,7 +2218,7 @@ var Car = function() {
   t.x = 0;
   t.y = 0;
   t.lastY = false;
-  t.u0 = 0;
+  t.t9 = 0;
   t.z = 0;
   t.lap = 0;
   t.lapStarted = false;
@@ -2227,42 +2227,42 @@ var Car = function() {
   t.n4 = 0.3;
   t.f2 = [];
   t.c7 = false;
-  t.p9 = 0;
+  t.p8 = 0;
   t.h2 = 0;
 
-  t.percent = 0; // percent remaining in t4
-  t.v9 = 0;
+  t.percent = 0; // percent remaining in u0
+  t.v7 = 0;
   t.v1 = 0;
 
-  t.v7StartTime = 0;
-  t.q2=t.v2=t.s1=t.q6=t.v7=t.l7=t.m3=false;
-  t.m7 = 0;
+  t.v5StartTime = 0;
+  t.q0=t.brake=t.s4=t.q8=t.v5=t.l5=t.l8=false;
+  t.m6 = 0;
   t.h8 = 0;
 
   t.o1 = 100;
   t.lapStarted = false;
 
-  // these are settings for the u4
-  // the car init routine will set them for ai u4s
-  t.n4    = 0.3;                     // n4 force multiplier when going around v6s
+  // these are settings for the u1
+  // the car init routine will set them for ai u1s
+  t.n4    = 0.3;                     // n4 force multiplier when going around v4s
 
-  t.s4       =  26000;
+  t.r6       =  26000;
   t.i8  =  28000;
 
-  t.v9Percent   = 0;  // v9 as percentage of max v9
+  t.v7Percent   = 0;  // v7 as percentage of max v7
 
   t.accel          =  6800;
-  t.s9       = -16000;
+  t.r8       = -16000;
   t.decel          = -8000;
   /*
   this.offRoadDecel   = -12000;
-  this.offRoadLimit   = this.s4 /1.4;
-//  this.accel          =  s4/5;             // acceleration rate - tuned until it 'felt' right
-  //this.s9       = -s4;               // deceleration rate when braking
-  //this.decel          = -s4/5;             // 'natural' deceleration rate when neither accelerating, nor braking
-  //this.offRoadDecel   = -s4/2;             // off road deceleration is somewhere in between
-  //this.offRoadLimit   =  s4/2;             // limit when off road deceleration no longer applies (e.g. you can always go at least this v9 even when off road)
-  //this.sideStripLimit   =  this.s4/1.5;             // limit when off road deceleration no longer applies (e.g. you can always go at least this v9 even when off road)
+  this.offRoadLimit   = this.r6 /1.4;
+//  this.accel          =  r6/5;             // acceleration rate - tuned until it 'felt' right
+  //this.r8       = -r6;               // deceleration rate when braking
+  //this.decel          = -r6/5;             // 'natural' deceleration rate when neither accelerating, nor braking
+  //this.offRoadDecel   = -r6/2;             // off road deceleration is somewhere in between
+  //this.offRoadLimit   =  r6/2;             // limit when off road deceleration no longer applies (e.g. you can always go at least this v7 even when off road)
+  //this.sideStripLimit   =  this.r6/1.5;             // limit when off road deceleration no longer applies (e.g. you can always go at least this v7 even when off road)
   */
 
   t.h5 = 0;                       // current lap time
@@ -2270,13 +2270,13 @@ var Car = function() {
 
   t.position = 0;
 
-  t.q9 = 3000;
+  t.r3 = 3000;
 
   // ai settings
   t.slowOnCorners = false;
   t.c5 = false;
 
-  t.u7 = 1.5;
+  t.u8 = 1.5;
   t.g5 = 0;
 
 
@@ -2284,7 +2284,7 @@ var Car = function() {
 }
 
 Car.prototype = {
-  l0:       function(v, accel, dt)      { return v + (accel * dt);                                        },
+  k7:       function(v, accel, dt)      { return v + (accel * dt);                                        },
 
   b6: function() {
     this.f2 = [];
@@ -2297,17 +2297,17 @@ Car.prototype = {
     var lineLength = 700;
 
     var i, j;
-    var t4s = 20;
+    var u0s = 20;
 
     var angle = 0.0;
     if(this.c7 === false) {
       this.c7 = [];
-      for(i = 0; i < t4s; i++) {
+      for(i = 0; i < u0s; i++) {
         this.c7.push(r9());
       }
     }
 
-    for(i = 0; i < t4s; i++) {
+    for(i = 0; i < u0s; i++) {
       this.c7[i] += 0.03;
       if(this.c7[i] >= 0.8) {
         this.c7[i] = 0;
@@ -2358,57 +2358,57 @@ Car.prototype = {
 
       var line = [];
       line.push({
-        v4: {
+        v8: {
           x: x1a,
           y: y1a,
           z: za
         },
         v0: {},
-        u1: {}
+        u6: {}
 
       });
 
       line.push({
-        v4: {
+        v8: {
           x: x2a,
           y: y2a,
           z: za
         },
         v0: {},
-        u1: {}
+        u6: {}
       });
 
 
       line.push({
-        v4: {
+        v8: {
           x: x4a,
           y: y4a,
           z: z2a,//centreZ - lineLength
         },
         v0: {},
-        u1: {}
+        u6: {}
 
       });
 
       line.push({
-        v4: {
+        v8: {
           x: x3a,
           y: y3a,
           z: z2a,//centreZ-lineLength
         },
         v0: {},
-        u1: {}
+        u6: {}
       });
 
       this.f2.push(line);
-      angle += PI / t4s;
+      angle += PI / u0s;
 
     }
 
     for(i = 0; i < this.f2.length; i++) {
       var points = this.f2[i];
       for(j = 0; j < points.length; j++) {
-        v0.t7(points[j], 0, 0, width, height);
+        v0.t2(points[j], 0, 0, width, height);
       }
     }
 
@@ -2417,7 +2417,7 @@ Car.prototype = {
   limit:            function(value, min, max)   { return Math.max(min, Math.min(value, max));   
   },
 
-  t1: function(x1, w1, x2, w2, percent) {
+  t0: function(x1, w1, x2, w2, percent) {
 
 
     var min1 = x1 - (percent - 1) * w1 / 2;
@@ -2427,29 +2427,29 @@ Car.prototype = {
     return ! ((max1 < min2) || (min1 > max2));
   },
 
-  // --- u4 controls ----
+  // --- u1 controls ----
   setTurnLeft: function(turn) {
-    this.s1 = turn;
+    this.s4 = turn;
   },
-  m0: function(turn) {
-    this.q6 = turn;
+  k8: function(turn) {
+    this.q8 = turn;
   },
-  j0: function(q2) {
-    this.q2 = q2;
+  j0: function(q0) {
+    this.q0 = q0;
   },
-  r6: function(v2) {
-    this.v2 = v2;
-  },
-
-  s0: function(v7) {
-    this.l7 = v7;
+  r5: function(brake) {
+    this.brake = brake;
   },
 
-  setDrift: function(v8) {
-    this.m3 = v8;
+  s2: function(v5) {
+    this.l5 = v5;
   },
 
-  // --- end u4 controls ---
+  setDrift: function(v6) {
+    this.l8 = v6;
+  },
+
+  // --- end u1 controls ---
 
   d2: function() {
     return this.h5;
@@ -2462,7 +2462,7 @@ Car.prototype = {
     return this.lap;
   },
 
-  n3: function() {
+  n2: function() {
       var i = this.position,
           j = i % 10,
           k = i % 100;
@@ -2479,46 +2479,46 @@ Car.prototype = {
   },
 
   r7: function() {
-    return this.v9;
+    return this.v7;
   },
 
 
 
-  update: function(dt) {//}, u4Segment, u4W) {
-    var s4 = this.s4;
-    this.v9Percent = this.v9 / this.s4;
-    var currentSegment = v5.n1(this.z);
-    var u4Segment = v5.n1(cars[0].z);
-    var v9Percent  = this.v9Percent;
-    this.percent = b2(this.z, v3.t4Length);    
+  update: function(dt) {//}, u1Segment, u1W) {
+    var r6 = this.r6;
+    this.v7Percent = this.v7 / this.r6;
+    var currentSegment = v3.n1(this.z);
+    var u1Segment = v3.n1(cars[0].z);
+    var v7Percent  = this.v7Percent;
+    this.percent = b2(this.z, v2.u0Length);    
 
 
-    var dx            = dt * this.q9 * v9Percent; // at top v9, should be able to cross from left to right (-1 to 1) in 1 second
-    var v5Left = currentSegment.p1.v4.x;
-    var v5Right = currentSegment.p2.v4.x;
+    var dx            = dt * this.r3 * v7Percent; // at top v7, should be able to cross from left to right (-1 to 1) in 1 second
+    var v3Left = currentSegment.p1.v8.x;
+    var v3Right = currentSegment.p2.v8.x;
 
     var carLeftSide = this.x;
     var carRightSide = this.x + this.width;
 
     // middle distance is about 900
     // furthest is about 1800
-    var distanceToLeft = carLeftSide - v5Left;
-    var distanceToRight = v5Right - carRightSide;
-    var v5Width = v5Right - v5Left;
+    var distanceToLeft = carLeftSide - v3Left;
+    var distanceToRight = v3Right - carRightSide;
+    var v3Width = v3Right - v3Left;
 
 
 
     var extraSpeed = 1;
 
-    // is the car on a v6? easy v6 max is about 4
-    if(currentSegment.v6 < 0 && distanceToLeft > 0) {
+    // is the car on a v4? easy v4 max is about 4
+    if(currentSegment.v4 < 0 && distanceToLeft > 0) {
       // turn left
       if(this.index == 0) {
-        extraSpeed = 1 + (v5Width - this.width - distanceToLeft) * (-currentSegment.v6) / (v5Width * 80);
+        extraSpeed = 1 + (v3Width - this.width - distanceToLeft) * (-currentSegment.v4) / (v3Width * 80);
       }
-    } else if(currentSegment.v6 > 0 && distanceToRight > 0) {
+    } else if(currentSegment.v4 > 0 && distanceToRight > 0) {
       if(this.index == 0) {
-        extraSpeed = 1 + (v5Width - this.width - distanceToRight) * (currentSegment.v6) / (v5Width * 80);
+        extraSpeed = 1 + (v3Width - this.width - distanceToRight) * (currentSegment.v4) / (v3Width * 80);
       }
     }
 
@@ -2527,116 +2527,116 @@ Car.prototype = {
     }
 
 
-    // max v9 multiplier
+    // max v7 multiplier
     var mult = 0.8;
     var accMult = 1;
     if(this.h2 > 0) {
       mult += 0.4;
     }
 
-    if(this.m3) {
-      // can only v8 over certain v9 ,otherwise we're s9
-      if(this.v9 > 8000 ) {
-        if(!this.v8 && !this.q2) {
-          this.m7 = 1.2;
-          this.v8 = true;
+    if(this.l8) {
+      // can only v6 over certain v7 ,otherwise we're r8
+      if(this.v7 > 8000 ) {
+        if(!this.v6 && !this.q0) {
+          this.m6 = 1.2;
+          this.v6 = true;
         }
 
         //mult -= 0.1;
         // can turn faster
       } else {
         mult -= 0.5;
-        this.v8 = false;
+        this.v6 = false;
       }
 
     } else {
-      this.v8 = false;
+      this.v6 = false;
     }
 
 
-    if(this.m7 > 0 && this.v9 > 8000) {
-      this.m7 -= dt;
+    if(this.m6 > 0 && this.v7 > 8000) {
+      this.m6 -= dt;
       mult -= 0.04;
       if(this.h8 == 0) {
-        if(this.s1) {
+        if(this.s4) {
           this.h8 = -1;
         }
-        if(this.q6) {
+        if(this.q8) {
           this.h8 = 1;
         }
       }
     } else {
-      this.v8 = false;
-      this.m7 = 0;
+      this.v6 = false;
+      this.m6 = 0;
       this.h8 = 0
     }
 
-    var v7On = this.v7;
-    // is v7 on?
-    if(this.l7) {
-      this.v7 = this.o1 > 0 && this.v9 > 8000 && this.q2;  
+    var v5On = this.v5;
+    // is v5 on?
+    if(this.l5) {
+      this.v5 = this.o1 > 0 && this.v7 > 8000 && this.q0;  
     } else {
-      this.v7 = false;
+      this.v5 = false;
     }
 
 
-    if(this.v7) {
+    if(this.v5) {
       accMult = 1.2;
-      s4 = this.i8;
+      r6 = this.i8;
     }
 
-    this.u7 = 3.4;
+    this.u8 = 3.4;
     // is the car offroad with a bit of leeway??   
     if(distanceToLeft < -this.width * 0.1 || distanceToRight < -this.width * 0.1) {
 
-      if(distanceToLeft + this.width * 0.1 < -u4Segment.r3
-         || distanceToRight + this.width * 0.1 < -u4Segment.r3) {
+      if(distanceToLeft + this.width * 0.1 < -u1Segment.r0
+         || distanceToRight + this.width * 0.1 < -u1Segment.r0) {
         
-        this.u7 = 9.5;
+        this.u8 = 9.5;
         mult -= 0.6;
         accMult -= 0.2;
       } else {
         mult -= 0.1;
-        this.u7 = 6;
+        this.u8 = 6;
       }
     }
 
-    this.u7 = (this.u7 * r9() * v9Percent) ;
+    this.u8 = (this.u8 * r9() * v7Percent) ;
 
     
     if(this.index == 0 && race.state != 5) {
-      // its the u4
+      // its the u1
 
-      this.x = this.x - (dx * v9Percent * u4Segment.v6 * this.n4);
+      this.x = this.x - (dx * v7Percent * u1Segment.v4 * this.n4);
 
       if(this.h8 != 0) {
         dx = dx * 0.5;
       }
-      if(this.s1)
+      if(this.s4)
         this.x = this.x - dx;
-      else if (this.q6)
+      else if (this.q8)
         this.x = this.x + dx;
     
-      var dv8 = this.h8 * this.v9 * 0.00055;
-      this.x += dv8;
+      var dv6 = this.h8 * this.v7 * 0.00055;
+      this.x += dv6;
 
 
       // need to check for collision with other cars..
-      this.z = l1(this.z, dt * this.v9 * extraSpeed, v5.r1());
+      this.z = l0(this.z, dt * this.v7 * extraSpeed, v3.r2());
 
       
-      this.y = g4(currentSegment.p1.v4.y, 
-        currentSegment.p3.v4.y, 
+      this.y = g4(currentSegment.p1.v8.y, 
+        currentSegment.p3.v8.y, 
         this.percent);
 
       // ---------------------------------------------- JUMP!!!
       // make the car jump if going fast..
-      // y is the y position of the t4
+      // y is the y position of the u0
 
         /*
       // gravity
 
-      if(this.u0 >= 0) {
+      if(this.t9 >= 0) {
         this.v1 -= dt * 75000;
       } else {
         this.v1 -= dt * 430000;
@@ -2644,7 +2644,7 @@ Car.prototype = {
       if(this.v1 < -2500) {
         this.v1 = -2500;
       }
-      // get the dy for the y position of the v5
+      // get the dy for the y position of the v3
       var dy = 0;
       if(this.lastY !== false) {
         dy = this.y - this.lastY;
@@ -2656,94 +2656,94 @@ Car.prototype = {
       this.lastY = this.y;
 
 
-      if(this.u0 <= 0) {
-        // was last on ground, so y v9 is based on y position of t4
+      if(this.t9 <= 0) {
+        // was last on ground, so y v7 is based on y position of u0
 
         var ydistTravelled = this.v1 * dt;
         // y offset is 
-        this.u0 = this.v1 * dt - dy;
-        if(this.u0 <= 0) {
+        this.t9 = this.v1 * dt - dy;
+        if(this.t9 <= 0) {
           // we're on the ground
           this.v1 = dy / dt;
-          this.u0 = 0;
+          this.t9 = 0;
         }
 
       } else {
         // in air..
-        this.u0 += this.v1 * dt;
-        if(this.u0 < 0) {
+        this.t9 += this.v1 * dt;
+        if(this.t9 < 0) {
           // we've landed
-          this.u0 = 0;
+          this.t9 = 0;
         }
       }
 
 
 */
-      this.u0 = 0;
+      this.t9 = 0;
 
       // -------------- END JUMP
       
-      if(this.q2) {
+      if(this.q0) {
         
-        if(this.v7) {
-          var time = l6();
-          if(!v7On) {
-            this.v7StartTime = time;
+        if(this.v5) {
+          var time = l2();
+          if(!v5On) {
+            this.v5StartTime = time;
           }
-          // decrease the amount of v7 left
+          // decrease the amount of v5 left
           this.o1 -= dt * 2.45;
-          b0(time - this.v7StartTime);
+          b0(time - this.v5StartTime);
         }
-        if(this.v9 < s4 * mult) {
-          this.v9 = this.l0(this.v9, this.accel * accMult, dt);
+        if(this.v7 < r6 * mult) {
+          this.v7 = this.k7(this.v7, this.accel * accMult, dt);
         } else {
 
           // going too fast, need to decelerate
-          this.v9 = this.l0(this.v9, this.decel, dt);
-          if(this.v9 < s4 * mult) {
-            this.v9 = s4 * mult;
+          this.v7 = this.k7(this.v7, this.decel, dt);
+          if(this.v7 < r6 * mult) {
+            this.v7 = r6 * mult;
           }
         }
-      } else if(this.v2) {
-        this.v9 = this.l0(this.v9, this.s9, dt);
+      } else if(this.brake) {
+        this.v7 = this.k7(this.v7, this.r8, dt);
       } else {
-        // not accelerating or s9, so just decelerate
-        this.v9 = this.l0(this.v9, this.decel, dt);
+        // not accelerating or r8, so just decelerate
+        this.v7 = this.k7(this.v7, this.decel, dt);
       }
 
 
       // check for collisions with roadside objects
-      for(var n = 0 ; n < u4Segment.t8.length ; n++) {
-        var sprite  = u4Segment.t8[n];
-        var spriteW = sprite.s * sprite.u6.cw;
-        var spriteX = sprite.x + sprite.u6.cx * sprite.s;
-        // check for collision will roadside object, same t4 and rects t1
+      for(var n = 0 ; n < u1Segment.t1.length ; n++) {
+        var sprite  = u1Segment.t1[n];
+        var spriteW = sprite.s * sprite.u5.cw;
+        var spriteX = sprite.x + sprite.u5.cx * sprite.s;
+        // check for collision will roadside object, same u0 and rects t0
         var carX = this.x;
-        if (this.t1(carX, 
+        if (this.t0(carX, 
           this.width, 
           spriteX, 
           spriteW, 1)) {
 
           if(this.index == 0) {
             g8();
-            this.p9 = 0;
+            this.p8 = 0;
             this.h2 = 0;
           }
-          this.v9 = s4/5;
-          this.z = l1(u4Segment.p1.v4.z, 0, v5.r1()); // stop in front of sprite (at front of t4)
+          this.v7 = r6/5;
+          this.z = l0(u1Segment.p1.v8.z, 0, v3.r2()); // stop in front of sprite (at front of u0)
           break;
         }
       }
       
       var isBehind = false;
       for(var i = 0; i < cars.length; i++) {
-        var distance = cars[i].z - u4.z;
-        if(u4.z > v5.r1() - 1200) {
-          distance -= v5.r1();
+        var distance = cars[i].z - u1.z;
+        if(u1.z > v3.r2() - 1200) {
+          distance -= v3.r2();
         }
 
         if(distance > 0 && distance < 1800) {
-          var offCentre =  (u4.x - cars[i].x) / cars[i].width;
+          var offCentre =  (u1.x - cars[i].x) / cars[i].width;
           if(offCentre < 0) {
             offCentre = - offCentre;
           }
@@ -2753,13 +2753,13 @@ Car.prototype = {
         }
       }
 
-      if(isBehind && this.v9 > 8000) {
-        this.p9 += dt * 1;
-        if(this.p9 > 0.14) {
+      if(isBehind && this.v7 > 8000) {
+        this.p8 += dt * 1;
+        if(this.p8 > 0.14) {
           this.h2 = 2;
         }
       } else {
-        this.p9 = 0;
+        this.p8 = 0;
       }
 
       if(this.h2 > 0) {
@@ -2767,30 +2767,30 @@ Car.prototype = {
       }      
 
     } else {
-      if(this.v9 < s4) {
-        this.v9 = this.l0(this.v9, this.accel, dt);
+      if(this.v7 < r6) {
+        this.v7 = this.k7(this.v7, this.accel, dt);
       }
 
-      var turnDir = this.d1(currentSegment, u4Segment, u4.width);
+      var turnDir = this.d1(currentSegment, u1Segment, u1.width);
       var newX  = this.x + turnDir * dx;
 
-      if(currentSegment.v6 == 0) {
-        this.s1 = turnDir == -1;
-        this.q6 = turnDir == 1;
+      if(currentSegment.v4 == 0) {
+        this.s4 = turnDir == -1;
+        this.q8 = turnDir == 1;
       } else {
-        this.s1 = currentSegment.v6 < -0.5;
-        this.q6 = currentSegment.v6 > 0.5;
+        this.s4 = currentSegment.v4 < -0.5;
+        this.q8 = currentSegment.v4 > 0.5;
       }
         
 
-      if(newX + this.width < v5Right * 0.6 && newX > v5Left * 0.8) {
+      if(newX + this.width < v3Right * 0.6 && newX > v3Left * 0.8) {
         this.x = newX;
       }
-      this.z = l1(this.z, dt * this.v9, v5.r1());      
+      this.z = l0(this.z, dt * this.v7, v3.r2());      
     }
 
-    this.percent = b2(this.z, v3.t4Length); // useful for interpolation during rendering phase
-    var newSegment  = v5.n1(this.z);
+    this.percent = b2(this.z, v2.u0Length); // useful for interpolation during rendering phase
+    var newSegment  = v3.n1(this.z);
 
 
     // check collisions with other cars
@@ -2801,24 +2801,24 @@ Car.prototype = {
         var car  = newSegment.cars[n];
 
         if(car.index != this.index) {
-          if (this.v9 > car.v9) {
-            // check for collision with other car, same t4 and rects t1
-            if (this.t1(this.x, this.width,
+          if (this.v7 > car.v7) {
+            // check for collision with other car, same u0 and rects t0
+            if (this.t0(this.x, this.width,
               car.x, car.width, 1)) {
               if(this.index !== 0) {
-                this.v9 = car.v9 / 2;
+                this.v7 = car.v7 / 2;
                 if(car.index !== 0) {
-                  car.v9 = car.v9 * 1.2;
+                  car.v7 = car.v7 * 1.2;
                 }
               } else {
                 if(this.index == 0) {
                   g8();
-                  this.p9 = 0;
+                  this.p8 = 0;
                   this.h2 = 0;
       
                 }
       
-                this.v9 = car.v9 ;
+                this.v7 = car.v7 ;
                 this.z = car.z - 100;
               }
               break;
@@ -2830,22 +2830,22 @@ Car.prototype = {
 
 
     // limit how far offroad a car can go
-    if(this.x + this.width / 2 < v5Left - 1.2 * this.width) {
-      this.x = v5Left - 1.2 * this.width - this.width / 2;
+    if(this.x + this.width / 2 < v3Left - 1.2 * this.width) {
+      this.x = v3Left - 1.2 * this.width - this.width / 2;
     }
 
-    if(this.x + this.width / 2 > v5Right + 1.2 * this.width) {
-      this.x = v5Right + 1.2 * this.width - this.width / 2;
+    if(this.x + this.width / 2 > v3Right + 1.2 * this.width) {
+      this.x = v3Right + 1.2 * this.width - this.width / 2;
     }
     
 
-    // limit the v9 to max v9
-    this.v9   = this.limit(this.v9, 0, s4); // or exceed s4
+    // limit the v7 to max v7
+    this.v7   = this.limit(this.v7, 0, r6); // or exceed r6
 
 
 
     if(this.index == 0) {
-      b5(this.v9Percent);
+      b5(this.v7Percent);
     }
 
 
@@ -2857,7 +2857,7 @@ Car.prototype = {
 
 
     // next lap?
-    if(this.z < v3.t4Length * 1.2 && !this.lapStarted) {    
+    if(this.z < v2.u0Length * 1.2 && !this.lapStarted) {    
       this.lap++;
       this.lapStarted = true;
       this.lastLapTime    = this.h5;
@@ -2868,7 +2868,7 @@ Car.prototype = {
       }
       this.h5 = 0;
     } else {
-      if(this.z > v3.t4Length * 1.2) {
+      if(this.z > v2.u0Length * 1.2) {
         this.lapStarted = false;
       }
       this.h5 += dt;
@@ -2895,7 +2895,7 @@ Car.prototype = {
       }
       if(this.position !== currentPosition) {
         // new position!
-        this.newPosition = this.n3();
+        this.newPosition = this.n2();
         this.e7 = 1;
       }
     }
@@ -2904,12 +2904,12 @@ Car.prototype = {
 
     if(this.index === 0 && this.lap === 3 && race.state != 5) {
       // race over!!!
-      this.g5 = this.n3();
+      this.g5 = this.n2();
       speak("Race. Over.")
       speak(this.g5 + " Place");
 
-      this.v7 = false;
-      this.p9 = 0;
+      this.v5 = false;
+      this.p8 = 0;
       this.h2 = 0;
 
       race.raceOver();
@@ -2936,44 +2936,44 @@ Car.prototype = {
   },
   */
 
-  d1: function(carSegment, u4Segment, u4Width) {
+  d1: function(carSegment, u1Segment, u1Width) {
     var lookAhead = 60;
 
-    var t4 = null;
+    var u0 = null;
 
-    var v5Segments = v5.o8Count();
+    var v3Segments = v3.o9Count();
 
 
     for(var i = 1; i < lookAhead; i++) {
-      t4 = v5.o8( (carSegment.index+i) % v5Segments );
-      var v5Left = t4.p1.v4.x;
-      var v5Right = t4.p2.v4.x;
+      u0 = v3.o9( (carSegment.index+i) % v3Segments );
+      var v3Left = u0.p1.v8.x;
+      var v3Right = u0.p2.v8.x;
       var dir = 0;
 
-      // avoid other cars less than 8 t4s ahead
+      // avoid other cars less than 8 u0s ahead
       if(i < 8) {
 
 
         /*
-        if ((t4 === u4Segment) 
-        && (this.v9 > u4.v9) 
-        && (this.t1(otherCarLeft, otherCarWidth, this.x, this.width, 1.2))) {
+        if ((u0 === u1Segment) 
+        && (this.v7 > u1.v7) 
+        && (this.t0(otherCarLeft, otherCarWidth, this.x, this.width, 1.2))) {
         */
-        for(n = 0 ; n < t4.cars.length ; n++) {
-          var otherCar = t4.cars[n];
+        for(n = 0 ; n < u0.cars.length ; n++) {
+          var otherCar = u0.cars[n];
 
           var otherCarLeft = otherCar.x;
           var otherCarWidth = otherCar.width;
           var otherCarRight = otherCar.x + otherCar.width;
   
 
-          if(v5Right - otherCarRight < this.width * 1.4) {
+          if(v3Right - otherCarRight < this.width * 1.4) {
             // can't fit on the right
             dir = -1;
-          } else if( otherCarLeft - v5Left < this.width * 1.4) {
+          } else if( otherCarLeft - v3Left < this.width * 1.4) {
             dir = 1;
           } else {
-            if(otherCarLeft - v5Left > v5Right - otherCarRight) {
+            if(otherCarLeft - v3Left > v3Right - otherCarRight) {
               dir = -1;
             } else {
               dir = 1;
@@ -2981,7 +2981,7 @@ Car.prototype = {
 //            dir = (this.x > otherCarLeft) ? 1 : -1;
           }
 
-          return dir * 3/i ;//* (this.v9-u4.v9)/s4;
+          return dir * 3/i ;//* (this.v7-u1.v7)/r6;
         }
 
       }
@@ -2990,11 +2990,11 @@ Car.prototype = {
     if(this.c5) {
 
       for(var i = 1; i < lookAhead; i++) {
-        t4 = v5.o8( (carSegment.index+i) % v5Segments );
-        var v5Left = t4.p1.v4.x;
-        var v5Right = t4.p2.v4.x;
+        u0 = v3.o9( (carSegment.index+i) % v3Segments );
+        var v3Left = u0.p1.v8.x;
+        var v3Right = u0.p2.v8.x;
     
-        if(t4.v6 > 0) {
+        if(u0.v4 > 0) {
           // move to the right
           if(i < 5) {
             return 1 / (5);
@@ -3002,7 +3002,7 @@ Car.prototype = {
           return 2 / i;
         }
 
-        if(t4.v6 < 0) {
+        if(u0.v4 < 0) {
           // move to the left
           if(i < 5) {
             return -1/ (5);
@@ -3017,53 +3017,53 @@ Car.prototype = {
   }
 }
 
-// define the v5s in the game
+// define the v3s in the game
 var e4 = '#a02222',
     g2 = '#BBBBBB',
     d4 = '#000000',
     g3 = '#000000',
     n9 = '#000000';
 
-var v3 = function() {
-  this.v5Length = 0;
-  this.m1 = 0;
+var v2 = function() {
+  this.v3Length = 0;
+  this.l4 = 0;
 
-  this.t4s = [];
+  this.u0s = [];
   this.map = null;
 }
 
-var q8      =1200;// 1200;//2000;   
+var q4      =1200;// 1200;//2000;   
 
-v3.t4Length  = 300;                   
+v2.u0Length  = 300;                   
             
 var lanes          = 1;                       
 
-v3.prototype = {
-  buildv30: function() {
-    q0 = 0;
+v2.prototype = {
+  buildv20: function() {
+    q1 = 0;
 
-    this.t4s = [];
+    this.u0s = [];
     this.m9(200);
     this.e9();    
   },
 
   createStreetLights: function() {
-    var t4Count = this.o8Count();
+    var u0Count = this.o9Count();
     
-    for(var i = 0; i < t4Count; i++) {
-      var t4 = this.t4s[i];
+    for(var i = 0; i < u0Count; i++) {
+      var u0 = this.u0s[i];
 
       if(i % 20 == 0) {
-        var x = t4.p1.v4.x;
-        t4.t8.push({ 
-          u6: a7, 
+        var x = u0.p1.v8.x;
+        u0.t1.push({ 
+          u5: a7, 
           s: 12, 
           x: x  - 12 * a7.w + 700
         });
 
-        var x = t4.p2.v4.x;
-        t4.t8.push({ 
-          u6: a5, 
+        var x = u0.p2.v8.x;
+        u0.t1.push({ 
+          u5: a5, 
           s: 12, 
           x: x  - 700
         });
@@ -3072,24 +3072,24 @@ v3.prototype = {
   },
 
   createRoadsideObjects: function(objs, prob, scale, offset, turnSigns) {
-    var t4Count = this.o8Count();
+    var u0Count = this.o9Count();
     var turnSegment = 0;
-    for(var i = 0; i < t4Count; i++) {
-      var t4 = this.t4s[i];
+    for(var i = 0; i < u0Count; i++) {
+      var u0 = this.u0s[i];
       var r = r9();
-      if(t4.v6 != 0 && turnSigns) {    
+      if(u0.v4 != 0 && turnSigns) {    
         if(turnSegment % 20 == 0) {
-          if(t4.v6 > 0) {
-            var x = t4.p1.v4.x;
-            t4.t8.push({ 
-              u6: d0, 
+          if(u0.v4 > 0) {
+            var x = u0.p1.v8.x;
+            u0.t1.push({ 
+              u5: d0, 
               s: 3, 
               x: x - 3 * d0.w - 400
             });
           } else {
-            var x = t4.p2.v4.x;
-            t4.t8.push({ 
-              u6: d8, 
+            var x = u0.p2.v8.x;
+            u0.t1.push({ 
+              u5: d8, 
               s: 3, 
               x: x + 400
             });
@@ -3098,20 +3098,20 @@ v3.prototype = {
         turnSegment++;
       } else {
         turnSegment = 0;
-//      if(t4.v6 == 0 || !turnSigns) {
+//      if(u0.v4 == 0 || !turnSigns) {
         var obj = objs[m8(objs.length)];
         if(r > prob) {
-          var x = t4.p1.v4.x;
+          var x = u0.p1.v8.x;
 
-          t4.t8.push({ 
-            u6: obj, 
+          u0.t1.push({ 
+            u5: obj, 
             s: scale, 
             x: x  - scale * obj.w / 2 - offset
           });
 
-          var x = t4.p2.v4.x;
-          t4.t8.push({ 
-            u6: obj, 
+          var x = u0.p2.v8.x;
+          u0.t1.push({ 
+            u5: obj, 
             s: scale, 
             x: x - scale * obj.w / 2 + offset
           });
@@ -3126,8 +3126,8 @@ v3.prototype = {
 
     d4 = '#047804',
     g3 = '#006A00';
-    c6 = p8;    
-    q0 = 0;
+    c6 = q2;    
+    q1 = 0;
 
     j2();
 
@@ -3175,8 +3175,8 @@ v3.prototype = {
 
     d4 = '#047804';
     g3 = '#006A00';
-    c6 = p8;
-    q0 = 0;
+    c6 = q2;
+    q1 = 0;
 
     j2();
     o6();
@@ -3227,8 +3227,8 @@ v3.prototype = {
    d4 = '#5a5a5a';
    g3 = '#626262';
 
-   c6 = p8;
-   q0 = 0;//'#eeeeee';
+   c6 = q2;
+   q1 = 0;//'#eeeeee';
 
     j2();
     o6();
@@ -3260,7 +3260,7 @@ v3.prototype = {
     t.d7(1, 0);
     t.m9(62, 0);
 
-//    t.o8(0).color = u2.START;
+//    t.o9(0).color = u4.START;
     t.e9();
     t.drawMap();
     t.createRoadsideObjects(c8, 0.95, 20, 3300, false);
@@ -3269,10 +3269,10 @@ v3.prototype = {
   },
 
 
-  n6: function() {
+  o4: function() {
     n9 = '#111111';
     c6 = '#555555';    
-    q0 = '#000000';
+    q1 = '#000000';
     d4 =  '#090909';
     g3 = '#030303';
 
@@ -3311,57 +3311,57 @@ v3.prototype = {
   },
 
   lastY: function() { 
-    return (this.t4s.length == 0) ? 0 : this.t4s[this.t4s.length-1].p3.v4.y; 
+    return (this.u0s.length == 0) ? 0 : this.u0s[this.u0s.length-1].p3.v8.y; 
   },
 
-  o8: function(index) {
-    return this.t4s[index];    
+  o9: function(index) {
+    return this.u0s[index];    
   },
 
-  o8Count: function() {
-    return this.t4s.length;
+  o9Count: function() {
+    return this.u0s.length;
   },
 
-  r1: function() {
-    return this.v5Length;
+  r2: function() {
+    return this.v3Length;
   },
 
   e9: function() {
-    this.v5Length = v5.t4s.length * v3.t4Length;
+    this.v3Length = v3.u0s.length * v2.u0Length;
     
 
   },
 
-  addSegment: function(v6, y) {
-    var n = this.t4s.length;
+  addSegment: function(v4, y) {
+    var n = this.u0s.length;
 
     var yFront = this.lastY();
     var yBack = y;
-    var zFront = n * v3.t4Length;
-    var zBack = (n+1)*v3.t4Length;
-    var xLeft = -q8;
-    var xRight = q8;
+    var zFront = n * v2.u0Length;
+    var zBack = (n+1)*v2.u0Length;
+    var xLeft = -q4;
+    var xRight = q4;
 
-    var r3 = 0;
-    if(v6 != 0) {
-      r3 = v6 * 40;
-      if(r3 < 0) {
-        r3 = -r3;
+    var r0 = 0;
+    if(v4 != 0) {
+      r0 = v4 * 40;
+      if(r0 < 0) {
+        r0 = -r0;
       }
-      r3 += 60;
+      r0 += 60;
 
     }
-    this.t4s.push({
+    this.u0s.push({
       index: n,
-      p1: { v4: { x: xLeft,  y: yFront,  z:  zFront }, v0: {}, u1: {} },
-      p2: { v4: { x: xRight, y: yFront,  z:  zFront }, v0: {}, u1: {} },
-      p3: { v4: { x: xRight, y: yBack, z:  zBack }, v0: {}, u1: {} },
-      p4: { v4: { x: xLeft,  y: yBack, z: zBack }, v0: {}, u1: {} },
-      v6: v6,
-      r3: r3,
-      t8: [],
+      p1: { v8: { x: xLeft,  y: yFront,  z:  zFront }, v0: {}, u6: {} },
+      p2: { v8: { x: xRight, y: yFront,  z:  zFront }, v0: {}, u6: {} },
+      p3: { v8: { x: xRight, y: yBack, z:  zBack }, v0: {}, u6: {} },
+      p4: { v8: { x: xLeft,  y: yBack, z: zBack }, v0: {}, u6: {} },
+      v4: v4,
+      r0: r0,
+      t1: [],
       cars: [],
-      color: false ? u2.DARK : u2.LIGHT
+      color: false ? u4.DARK : u4.LIGHT
     });
 
   },
@@ -3370,45 +3370,45 @@ v3.prototype = {
   easeOut:          function(a,b,percent)       { return a + (b-a)*(1-Math.pow(1-percent,2));                     },
   easeInOut:        function(a,b,percent)       { return a + (b-a)*((-Math.cos(percent*Math.PI)/2) + 0.5);        },
 
-  t3: function(enter, hold, leave, v6, y, v6Angle) {
-    var v6Angle = v6Angle || 0;
-    var exitAngle = this.m1 + v6Angle;
+  t3: function(enter, hold, leave, v4, y, v4Angle) {
+    var v4Angle = v4Angle || 0;
+    var exitAngle = this.l4 + v4Angle;
     
     var startY   = this.lastY();
-    var endY     = startY + (Math.floor(y) * v3.t4Length);
+    var endY     = startY + (Math.floor(y) * v2.u0Length);
     var n, total = enter + hold + leave;
-    var t4Curve = 0;
+    var u0Curve = 0;
     var totalCurve = 0;
-    var firstSegment = this.t4s.length;
+    var firstSegment = this.u0s.length;
     for(n = 0 ; n < enter ; n++) {
-      t4Curve = this.easeIn(0, v6, n/enter);
-      totalCurve += t4Curve;
-      this.addSegment(t4Curve, this.easeInOut(startY, endY, n/total));
+      u0Curve = this.easeIn(0, v4, n/enter);
+      totalCurve += u0Curve;
+      this.addSegment(u0Curve, this.easeInOut(startY, endY, n/total));
     }
     for(n = 0 ; n < hold  ; n++) {
-      t4Curve = v6;
-      totalCurve += t4Curve;
-      this.addSegment(v6, this.easeInOut(startY, endY, (enter+n)/total));
+      u0Curve = v4;
+      totalCurve += u0Curve;
+      this.addSegment(v4, this.easeInOut(startY, endY, (enter+n)/total));
     }
     for(n = 0 ; n < leave ; n++) {
-      t4Curve = this.easeInOut(v6, 0, n/leave);
-      totalCurve += t4Curve;
-      this.addSegment(t4Curve, this.easeInOut(startY, endY, (enter+hold+n)/total));
+      u0Curve = this.easeInOut(v4, 0, n/leave);
+      totalCurve += u0Curve;
+      this.addSegment(u0Curve, this.easeInOut(startY, endY, (enter+hold+n)/total));
     }
   
     var anglePerCurve = 0;
     if(totalCurve != 0) {
-      anglePerCurve = (exitAngle - this.m1) / totalCurve;
+      anglePerCurve = (exitAngle - this.l4) / totalCurve;
     }
   
     // fix the angles
-    for(var i = firstSegment; i < this.t4s.length; i++) {
-      this.m1 += this.t4s[i].v6 * anglePerCurve;
-      this.t4s[i].angle = this.m1;
+    for(var i = firstSegment; i < this.u0s.length; i++) {
+      this.l4 += this.u0s[i].v4 * anglePerCurve;
+      this.u0s[i].angle = this.l4;
     } 
   
-    this.m1 = exitAngle;
-    this.t4s[this.t4s.length - 1].angle = exitAngle;
+    this.l4 = exitAngle;
+    this.u0s[this.u0s.length - 1].angle = exitAngle;
   },
 
   m9: function(len, height) {
@@ -3459,24 +3459,24 @@ v3.prototype = {
   },
 
   t3sideObject: function(n, sprite, offset) {
-    var t4 = this.t4s[n];
+    var u0 = this.u0s[n];
     var x = 0;
     if(offset < 0) {
-      x = t4.p1.v4.x - 600;
+      x = u0.p1.v8.x - 600;
     } else {
-      x = t4.p2.v4.x + 600;
+      x = u0.p2.v8.x + 600;
     }
-    t4.t8.push({ u6: sprite, x: x });
+    u0.t1.push({ u5: sprite, x: x });
   },
 
 
   /*
   When the car reaches the end of the road we will simply loop back to the beginning. 
-  To make this a little easier we provide a method to find the t4 for any Z value
+  To make this a little easier we provide a method to find the u0 for any Z value
   even if it extends beyond the length of the road:
   */
   n1: function(z) {
-    return this.t4s[Math.floor(z / v3.t4Length) % this.t4s.length];
+    return this.u0s[Math.floor(z / v2.u0Length) % this.u0s.length];
   },
 
   drawMap: function() {
@@ -3489,8 +3489,8 @@ v3.prototype = {
 
     var width = canvas.width;
     var height = canvas.height;
-//    t2.fillStyle = '#222222';
-//    t2.fillRect(0, 0, width, height);
+//    t6.fillStyle = '#222222';
+//    t6.fillRect(0, 0, width, height);
     j7(600, 600);
     g0('#666666');
     cntx.lineWidth = 5;
@@ -3502,48 +3502,48 @@ v3.prototype = {
 
   
     k3();
-    var t4DrawLength = 0.5;
+    var u0DrawLength = 0.5;
     p0(x, y);
-    for(var i = 0; i < this.t4s.length; i++) {
-      angle = (this.t4s[i].angle / 180) * PI;
-      x += t4DrawLength * cos(angle);
-      y += t4DrawLength * sin(angle);
-      o9(x, y);
+    for(var i = 0; i < this.u0s.length; i++) {
+      angle = (this.u0s[i].angle / 180) * PI;
+      x += u0DrawLength * cos(angle);
+      y += u0DrawLength * sin(angle);
+      o8(x, y);
 
       // in 2d overhead view
-      this.t4s[i].x = x;
-      this.t4s[i].y = y;
+      this.u0s[i].x = x;
+      this.u0s[i].y = y;
     }
   
     p2();
   
-    g0(q5);
+    g0(q7);
     cntx.lineWidth = 4;
     p2();
 
 
 
     // draw the start line
-    t4DrawLength = 4;
-    t2.lineWidth = 3;
-    g0(q5);
+    u0DrawLength = 4;
+    t6.lineWidth = 3;
+    g0(q7);
     k3();
-    angle = ((this.t4s[0].angle + 90) / 180) * PI;
-    x -= t4DrawLength * cos(angle);
-    y -= t4DrawLength * sin(angle);
+    angle = ((this.u0s[0].angle + 90) / 180) * PI;
+    x -= u0DrawLength * cos(angle);
+    y -= u0DrawLength * sin(angle);
     p0(x, y);
-    x += 2 * t4DrawLength * cos(angle);
-    y += 2 * t4DrawLength * sin(angle);
-    o9(x, y);
+    x += 2 * u0DrawLength * cos(angle);
+    y += 2 * u0DrawLength * sin(angle);
+    o8(x, y);
   
     p2();
   },
 
 
   c9: function() {
-    //var canvas = document.getElementById('v5Canvas');
+    //var canvas = document.getElementById('v3Canvas');
     cntx = j1.x;//canvas.getContext('2d');
-    this.m6 = j1.c;
+    this.m7 = j1.c;
 
     j7(600, 600);
     i5(this.map, 0, 0, 600, 600, 0, 0, 600, 600);
@@ -3551,29 +3551,29 @@ v3.prototype = {
     // opponents
     for(var i = 0; i < cars.length; i++) {
       var carPosition = cars[i].z;
-      var t4 = v5.n1(carPosition);
+      var u0 = v3.n1(carPosition);
       
       k3();
     
-      t9(t4.x, t4.y, 5, 0, 2 * PI, false);
-      k4(r5);
-      s2();
+      t4(u0.x, u0.y, 5, 0, 2 * PI, false);
+      k4(r4);
+      s9();
       cntx.lineWidth = 2;
       g0('#999999');
       p2();
     }
 
-    // v0 z position plus u4 z position from v0
-    var u4Position = cars[0].z;
-    var u4Segment = v5.n1(u4Position);
+    // v0 z position plus u1 z position from v0
+    var u1Position = cars[0].z;
+    var u1Segment = v3.n1(u1Position);
   
     k3();
-    t9(u4Segment.x, u4Segment.y, 5, 0, 2 * PI, false);
+    t4(u1Segment.x, u1Segment.y, 5, 0, 2 * PI, false);
     k4('#ff0000');
-    s2();
+    s9();
 
-    t2.lineWidth = 2;
-    g0(p8);
+    t6.lineWidth = 2;
+    g0(q2);
     p2();
         
   }
@@ -3587,20 +3587,20 @@ v3.prototype = {
 
 // controls the race
 
-var v5 = null;
+var v3 = null;
 
 var numbers = ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE', 'SIX', 'SEVEN', 'EIGHT'];
 var Race = function() {
-  this.v5 = null;
-//  this.u4 = null;
+  this.v3 = null;
+//  this.u1 = null;
 
   this.state = 0;
   this.f0 = 3;
   this.lastTime = 0 ;
 
-  this.r8 = 15;// 10;
+  this.s1 = 15;// 10;
 
-  this.v5Number = 0;
+  this.v3Number = 0;
 
   this.zIsDown = false;
   this.xIsDown = false;
@@ -3620,39 +3620,39 @@ Race.prototype = {
     // init never gets called?
   },
 
-  start: function(v5Number) {
+  start: function(v3Number) {
     b5(0);
 
-    if(v5Number >= 4) {
-      v5Number = 0;
+    if(v3Number >= 4) {
+      v3Number = 0;
     }
-//    v5Number = 3;
-    this.raceNumber = v5Number;
-    v5 = new v3();
+//    v3Number = 3;
+    this.raceNumber = v3Number;
+    v3 = new v2();
 
-    switch(v5Number) {
+    switch(v3Number) {
       case 0:
-        v5.o3();
+        v3.o3();
         break;
       case 1:
-        v5.o2();
+        v3.o2();
         break;
       case 2:
-        v5.n8();
+        v3.n8();
         break;
       case 3:
-        v5.n6();
+        v3.o4();
         break;
 
     }
 
     this.resetCars();
-    u4 = cars[0];
-    u4.b6();
+    u1 = cars[0];
+    u1.b6();
 
     this.state = 0;
     this.f0 = 4;
-    this.lastTime = l6();
+    this.lastTime = l2();
 
   },
 
@@ -3665,23 +3665,23 @@ Race.prototype = {
       switch(e.keyCode) {
         case 90: // z
           this.zIsDown = true;
-          u4.setDrift(true);
+          u1.setDrift(true);
           break;
         case 88: // x
           this.xIsDown = true;
-          u4.s0(true);
+          u1.s2(true);
           break;
         case 38:
-          u4.j0(true);
+          u1.j0(true);
           break;
         case 40:
-          u4.r6(true);
+          u1.r5(true);
           break;
         case 37:
-          u4.setTurnLeft(true);
+          u1.setTurnLeft(true);
           break;
         case 39:
-          u4.m0(true);
+          u1.k8(true);
           break;
       }
     } else {
@@ -3696,23 +3696,23 @@ Race.prototype = {
       switch(e.keyCode) {
         case 90: // z
           this.zIsDown = false;
-          u4.setDrift(false);
+          u1.setDrift(false);
           break;
         case 88:
           this.xIsDown = false;
-          u4.s0(false);
+          u1.s2(false);
           break;
         case 38:
-          u4.j0(false);
+          u1.j0(false);
           break;
         case 40:
-          u4.r6(false);
+          u1.r5(false);
           break;
         case 37:
-          u4.setTurnLeft(false);
+          u1.setTurnLeft(false);
           break;
         case 39:
-          u4.m0(false);
+          u1.k8(false);
           break;
       }
     } else {
@@ -3742,15 +3742,15 @@ Race.prototype = {
   resetCars: function() {
     //    resetCars();
     cars = [];
-    var n, car, t4, offset, z, sprite, v9;
-    for (var n = 0 ; n < this.r8 ; n++) {
-      z = v5.r1() - (this.r8 - n) * v3.t4Length * 13;
+    var n, car, u0, offset, z, sprite, v7;
+    for (var n = 0 ; n < this.s1 ; n++) {
+      z = v3.r2() - (this.s1 - n) * v2.u0Length * 13;
 
-      t4 = v5.n1(z);
+      u0 = v3.n1(z);
 
-      var v5Left = t4.p1.v4.x;
-      var v5Right = t4.p2.v4.x;
-//      var v5Width = v5Right - v5Left;
+      var v3Left = u0.p1.v8.x;
+      var v3Right = u0.p2.v8.x;
+//      var v3Width = v3Right - v3Left;
 
 //      sprite = SPRITES.CAR_STRAIGHT;
 
@@ -3758,9 +3758,9 @@ Race.prototype = {
 
       var x = 0;
       if(n%2) {
-        x = v5Left / 2;
+        x = v3Left / 2;
       } else {
-        x = v5Right / 2 - car.width;
+        x = v3Right / 2 - car.width;
 
       }
 
@@ -3770,20 +3770,20 @@ Race.prototype = {
       car.x = x;
       car.z = z;
       car.sprite = sprite;
-      car.v9 = 0;//v9;      
-      car.percent = b2(car.z, v3.t4Length);  
+      car.v7 = 0;//v7;      
+      car.percent = b2(car.z, v2.u0Length);  
 
-      // u4 v9s are set in car.js
+      // u1 v7s are set in car.js
       if(car.index !== 0) {
-        var s4 = 23000;//23000;
+        var r6 = 23000;//23000;
         if(car.index < 8 && car.index > 3) {
-          car.s4 = s4 * 0.905 - r9() * (this.r8 - n - 1) * s4 / 55;
+          car.r6 = r6 * 0.905 - r9() * (this.s1 - n - 1) * r6 / 55;
         } else if(car.index > 12) {
-          car.s4 = s4 * 0.905 - (this.r8 - n - 1) * s4 / 65;
+          car.r6 = r6 * 0.905 - (this.s1 - n - 1) * r6 / 65;
         } else {
-          car.s4 = s4 * 0.905 - (this.r8 - n - 1) * s4 / 45;
+          car.r6 = r6 * 0.905 - (this.s1 - n - 1) * r6 / 45;
         }
-        car.accel = s4 / 2;  
+        car.accel = r6 / 2;  
         
         if(car.index < 4) {
           car.c5 = false;
@@ -3792,16 +3792,16 @@ Race.prototype = {
           car.slowOnCorners = r9() > 0.6;
         }
       }
-      t4.cars.push(car);
+      u0.cars.push(car);
       cars.push(car);
     }
 
   },
 
   j3: function(dt) {
-    var time = l6();
+    var time = l2();
     if(time - this.lastTime > Race.c4) {
-      this.lastTime = l6();
+      this.lastTime = l2();
       this.f0--;
       if(this.f0 == 3) {
         speak('RACE');
@@ -3821,9 +3821,9 @@ Race.prototype = {
   },
 
   f9: function(dt) {
-    var time = l6();
+    var time = l2();
     if(time - this.lastTime > Race.c4) {
-      this.lastTime = l6();
+      this.lastTime = l2();
       this.f0--;
       if(this.f0 <= 0) {
         i7(440, 1/2);
@@ -3837,23 +3837,23 @@ Race.prototype = {
   },
 
   updateRace: function(dt) {
-    var u4Segment = v5.n1(u4.z);
-    var v9Percent  = u4.v9Percent;//u4.v9 / s4;
-    var dx            = dt * 2 * v9Percent; // at top v9, should be able to cross from left to right (-1 to 1) in 1 second
+    var u1Segment = v3.n1(u1.z);
+    var v7Percent  = u1.v7Percent;//u1.v7 / r6;
+    var dx            = dt * 2 * v7Percent; // at top v7, should be able to cross from left to right (-1 to 1) in 1 second
     var startPosition = v0.z;
   
     for(var i = 0; i < cars.length; i++) {
-      cars[i].update(dt);//, u4Segment, u4.width);
+      cars[i].update(dt);//, u1Segment, u1.width);
     }
-  //  updateCars(dt, u4Segment, u4.width);
+  //  updateCars(dt, u1Segment, u1.width);
   
-//    u4.update(dt);
+//    u1.update(dt);
     v0.update(dt);
 
 
-    h3  = l1(h3,  i2  * u4Segment.v6 * (v0.z-startPosition) / v3.t4Length, 1);
-    h4 = l1(h4, i3 * u4Segment.v6 * (v0.z-startPosition) / v3.t4Length, 1);
-    h6 = l1(h6, i4 * u4Segment.v6 * (v0.z-startPosition) / v3.t4Length, 1);
+    h3  = l0(h3,  i2  * u1Segment.v4 * (v0.z-startPosition) / v2.u0Length, 1);
+    h4 = l0(h4, i3 * u1Segment.v4 * (v0.z-startPosition) / v2.u0Length, 1);
+    h6 = l0(h6, i4 * u1Segment.v4 * (v0.z-startPosition) / v2.u0Length, 1);
 
 
   },
@@ -3878,91 +3878,91 @@ Race.prototype = {
   },
 
   render: function() {
-    l9();
+    l7();
     if(this.state == 0) {
-//      t2.font = "120px \"Courier New\", Courier, monospace";
-      t2.font = 'italic bold 350px ' + q7;
+//      t6.font = "120px \"Courier New\", Courier, monospace";
+      t6.font = 'italic bold 350px ' + q6;
 
       if(this.f0 < 4) {
-        k4(r5);
-        l2("RACE", 14, 304);  
-        k4(q5);
-        l2("RACE", 10, 300);  
+        k4(r4);
+        k9("RACE", 14, 304);  
+        k4(q7);
+        k9("RACE", 10, 300);  
       }
 
       if(this.f0 < 3) {
         if(this.raceNumber == 0) {
-          t2.font = 'italic bold 440px ' + q7;
+          t6.font = 'italic bold 440px ' + q6;
         } else if(this.raceNumber == 1) {
-          t2.font = 'italic bold 430px ' + q7;
+          t6.font = 'italic bold 430px ' + q6;
         } else if(this.raceNumber == 2) {
-          t2.font = 'italic bold 290px ' + q7;
+          t6.font = 'italic bold 290px ' + q6;
         } else if(this.raceNumber == 3) {
-          t2.font = 'italic bold 358px ' + q7;
+          t6.font = 'italic bold 358px ' + q6;
         }
 
-        k4(r5);
-        l2(numbers[this.raceNumber], 14, 674);  
-        k4(q5);
-        l2(numbers[this.raceNumber], 10, 670);  
+        k4(r4);
+        k9(numbers[this.raceNumber], 14, 674);  
+        k4(q7);
+        k9(numbers[this.raceNumber], 10, 670);  
       }
 
     }
 
     if(this.state == 1) {
 
-      t2.font = ' 300px ' + q7;
-      t2.fillStyle= '#111111';
-      t2.fillText(this.f0, 449, 254);  
-      t2.fillStyle= q5;
-      t2.fillText(this.f0, 445, 250);  
+      t6.font = ' 300px ' + q6;
+      t6.fillStyle= '#111111';
+      t6.fillText(this.f0, 449, 254);  
+      t6.fillStyle= q7;
+      t6.fillText(this.f0, 445, 250);  
 
 
     }
     
     if(this.state == 4) {
 
-      k4(q5);
-      g0(q5);
-      t2.font = ' 80px ' + q7;
-      t2.fillText(u4.n3(), 10, 80);
+      k4(q7);
+      g0(q7);
+      t6.font = ' 80px ' + q6;
+      t6.fillText(u1.n2(), 10, 80);
 
-      t2.font = ' 40px ' + q7;
-      t2.fillText("Lap " + u4.getLap() + " of 2", 10, 130);
-      t2.fillText("Lap Time: " + u4.d2().toFixed(2), 10, 180);
+      t6.font = ' 40px ' + q6;
+      t6.fillText("Lap " + u1.getLap() + " of 2", 10, 130);
+      t6.fillText("Lap Time: " + u1.d2().toFixed(2), 10, 180);
 
 
-      t2.font = ' 80px ' + q7;
+      t6.font = ' 80px ' + q6;
 
-      var v9 = ("000" + Math.round(u4.r7() / 100 ).toString(10)).substr(-3);
-      t2.fillText( v9 + "km/h", 695, 80);
-      t2.font = ' 40px ' + q7;
+      var v7 = ("000" + Math.round(u1.r7() / 100 ).toString(10)).substr(-3);
+      t6.fillText( v7 + "km/h", 695, 80);
+      t6.font = ' 40px ' + q6;
 
-      t2.fillText( "Turbo ", 670, 136);
+      t6.fillText( "Turbo ", 670, 136);
       k3();
-      t2.rect(796, 110, 208, 28);
+      t6.rect(796, 110, 208, 28);
       p2();      
-      m2(800, 114, u4.o1 * 2, 20);
+      m0(800, 114, u1.o1 * 2, 20);
 
       if( cars[0].e7 > 0) {
-        t2.font = ' 160px ' + q7;
-        k4(q5);
-        t2.fillText(cars[0].n3(), 334, 184);
+        t6.font = ' 160px ' + q6;
+        k4(q7);
+        t6.fillText(cars[0].n2(), 334, 184);
       }
 
     }
 
     if(this.state == 5) {
-      t2.font = ' 300px ' + q7;
-      k4(q5);
-      t2.fillText(cars[0].g5, 300, 290);//cars[0].g5, 494, 254);
-      t2.font = ' 40px ' + q7;
+      t6.font = ' 300px ' + q6;
+      k4(q7);
+      t6.fillText(cars[0].g5, 300, 290);//cars[0].g5, 494, 254);
+      t6.font = ' 40px ' + q6;
       var y = 380;
       if(cars[0].g5 == '1st') {
-        t2.fillText("x: Next Race", 397, y);
+        t6.fillText("x: Next Race", 397, y);
         y += 80;
       }
-      t2.fillText("z: Retry", 445, y);
+      t6.fillText("z: Retry", 445, y);
     }
 
 
@@ -3972,14 +3972,14 @@ Race.prototype = {
 // entry point, set up main loop
 
 var canvas = document.getElementById('gameCanvas');
-var t2 = canvas.getContext('2d');
-var u8 = false;
+var t6 = canvas.getContext('2d');
+var u7 = false;
 
-var l6 = function() { return performance.now(); };
+var l2 = function() { return performance.now(); };
 
 
 document.addEventListener("keydown", function(e) {
-  if(u8) {
+  if(u7) {
     race.keyDown(e);
   } else {
     m4.keyDown(e);
@@ -3988,7 +3988,7 @@ document.addEventListener("keydown", function(e) {
 
 
 document.addEventListener("keyup", function(e) {
-  if(u8) {
+  if(u7) {
     race.keyUp(e);
   } else {
     m4.keyUp(e);
@@ -3996,23 +3996,23 @@ document.addEventListener("keyup", function(e) {
 });
 
 
-var now = l6();
-var last = l6();
+var now = l2();
+var last = l2();
 
 var dt = 0;
 var gdt = 0;
 
 var cars           = [];                      // array of cars on the road
-var u4 = null;
+var u1 = null;
 var v0 = new u3();
 var race = new Race();
-v5 = new v3();
-var m4 = new m5(canvas, t2);
+v3 = new v2();
+var m4 = new m5(canvas, t6);
 
 function startGame(options) {
   i6();
   speak('Start');
-  u8 = true;
+  u7 = true;
   v0.reset();
   race.start(0);
 
@@ -4030,15 +4030,15 @@ stats.dom.style.left = 'auto';
 function frame() {
 //  stats.begin();
 
-  now = l6();
+  now = l2();
   dt  = Math.min(1, (now - last) / 1000); 
   gdt = gdt + dt;
 
-  if(!u8) {
+  if(!u7) {
     m4.render(dt);
     gdt = 0;
   } else {
-    n2 = false;
+    n3 = false;
 
     var step = 1/180;
     while (gdt > step) {
@@ -4046,7 +4046,7 @@ function frame() {
       race.update(step);
     }
 
-    v5.c9();
+    v3.c9();
     race.render();
 
     last = now;
@@ -4060,7 +4060,7 @@ frame();
 
 
 
-var r4 = null;
+var s0 = null;
 var n7 = null;
 var f6 = null;
 var f5 = null;
@@ -4078,15 +4078,15 @@ function b0(t) {
 }
 
 function i6() {
-  if(r4 == null) {
-    r4 = new (window.AudioContext || window.webkitAudioContext)();
+  if(s0 == null) {
+    s0 = new (window.AudioContext || window.webkitAudioContext)();
 
     a0();
     a1();
     a2();
 
 
-    f6 = r4.createScriptProcessor(1024, 1, 1);
+    f6 = s0.createScriptProcessor(1024, 1, 1);
     f6.onaudioprocess = function(e) {
       //f7 = g7;
 
@@ -4094,9 +4094,9 @@ function i6() {
       var index;
 
       for (var i = 0; i < channel.length; ++i) {
-        // skip more data frames on higher v9
+        // skip more data frames on higher v7
 
-        if(u4.v7) {
+        if(u1.v5) {
           d5 += d6+ Math.random();
           f4 += f3 ;
             index = Math.floor(f4) % g7.length;
@@ -4110,7 +4110,7 @@ function i6() {
           channel[i] =  f7[index] + Math.random() * 0.01;
         }
 
-        if(u4.h2 > 0) {
+        if(u1.h2 > 0) {
           channel[i] += Math.random() * 0.4;
         }
         //channel[i] += f7[index] + Math.random() * 0.01;
@@ -4120,15 +4120,15 @@ function i6() {
 //      audioScriptCurrentFrame %= f7.length;
 
     }
-    f5 = r4.createGain();
+    f5 = s0.createGain();
     f5.gain.value = 0.14;
     f6.connect(f5);
-    f5.connect(r4.destination);
+    f5.connect(s0.destination);
   }
 }
 
 function a1() {
-  var bufferSize = 1024;//2 * r4.sampleRate;
+  var bufferSize = 1024;//2 * s0.sampleRate;
   g7 = [];
   var index = 0;
   
@@ -4161,7 +4161,7 @@ function a1() {
 
 }
 function a0() {
-  var bufferSize = 1024;//2 * r4.sampleRate;
+  var bufferSize = 1024;//2 * s0.sampleRate;
   f7 = [];
 
   var lastValue = 1;
@@ -4193,8 +4193,8 @@ function a0() {
 
 function a2() {
 
-  var bufferSize = 2 * r4.sampleRate;
-  n7 = r4.createBuffer(1, bufferSize, r4.sampleRate);
+  var bufferSize = 2 * s0.sampleRate;
+  n7 = s0.createBuffer(1, bufferSize, s0.sampleRate);
   var output = n7.getChannelData(0);
 
   for (var i = 0; i < bufferSize; i++) {
@@ -4204,20 +4204,20 @@ function a2() {
 }
 
 function i7(freq, duration) {
-  var gain = r4.createGain();
+  var gain = s0.createGain();
     
-  var osc = r4.createOscillator();
+  var osc = s0.createOscillator();
   osc.connect(gain);
-  gain.connect(r4.destination);
+  gain.connect(s0.destination);
   osc.type = "triangle";//"sawtooth";
   osc.frequency.value = freq;
   gain.gain.value = 0.1;
-  osc.start(r4.currentTime);
-  osc.stop(r4.currentTime + duration);
+  osc.start(s0.currentTime);
+  osc.stop(s0.currentTime + duration);
 }
 
-function b5(v9) {
-  d6 = 0.2 + v9 * 2;
+function b5(v7) {
+  d6 = 0.2 + v7 * 2;
 }
 
 function b8() {
@@ -4227,7 +4227,7 @@ function b8() {
 var i1 = 0;
 function g8() {
 
-  var crashTime = l6();
+  var crashTime = l2();
   if(crashTime - i1 < 1000) {
     return;
 
@@ -4235,22 +4235,22 @@ function g8() {
   i1 = crashTime;
 
   var noteLength = 1/2;
-  var gain = r4.createGain();
+  var gain = s0.createGain();
 
   var audioSource = null;
-  audioSource = r4.createBufferSource();
+  audioSource = s0.createBufferSource();
   audioSource.connect(gain);
-  gain.connect(r4.destination);
+  gain.connect(s0.destination);
 
   audioSource.buffer = n7;
 
-  gain.gain.linearRampToValueAtTime(0.5, r4.currentTime );//+ 1/64);
-  gain.gain.linearRampToValueAtTime(0, r4.currentTime + noteLength * 0.7 );
+  gain.gain.linearRampToValueAtTime(0.5, s0.currentTime );//+ 1/64);
+  gain.gain.linearRampToValueAtTime(0, s0.currentTime + noteLength * 0.7 );
 
-  audioSource.playbackRate.setValueAtTime(0.035, r4.currentTime);
-  audioSource.playbackRate.setValueAtTime(0.002, r4.currentTime + noteLength);
-  audioSource.start(r4.currentTime);
-  audioSource.stop(r4.currentTime+noteLength);
+  audioSource.playbackRate.setValueAtTime(0.035, s0.currentTime);
+  audioSource.playbackRate.setValueAtTime(0.002, s0.currentTime + noteLength);
+  audioSource.start(s0.currentTime);
+  audioSource.stop(s0.currentTime+noteLength);
 
 
 }
