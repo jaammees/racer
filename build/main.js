@@ -6,14 +6,6 @@ var q6 = ' "Helvetica Neue", Helvetica, Arial, sans-serif';
 
 var c6=0;
 
-var u4 = { 
-
-  LIGHT:  { road: '#3a3a3a', grass: '#047804', v9: '#a02222', lane: '#CCCCCC'  },
-  DARK:   { road: '#3a3a3a', grass: '#006A00', v9: '#BBBBBB'                   },
-  START:  { road: 'white',   grass: '#009A00', v9: '#BBBBBB'                     },
-  FINISH: { road: 'black',   grass: 'black',   v9: 'black'                     }
-};
-
 
 var cntx = null;
 
@@ -3360,8 +3352,7 @@ v2.prototype = {
       v4: v4,
       r0: r0,
       t1: [],
-      cars: [],
-      color: false ? u4.DARK : u4.LIGHT
+      cars: []
     });
 
   },
@@ -4085,6 +4076,8 @@ function i6() {
     a1();
     a2();
 
+    drawBuffer(f7);
+
 
     f6 = s0.createScriptProcessor(1024, 1, 1);
     f6.onaudioprocess = function(e) {
@@ -4177,7 +4170,7 @@ function a0() {
     var positionDiff = nextPosition - (index - 1);
     var step = (nextValue - lastValue) / positionDiff;
     for (var j = 0; j < positionDiff; j++) {
-      f7[index++] = lastValue + step * j;
+      f7[index++] = lastValue + step * j + Math.random() * 0.01;
     }
     lastValue = nextValue;
   }
@@ -4185,7 +4178,7 @@ function a0() {
   positionDiff = bufferSize - (index - 1);
   var step = (1 - lastValue) / positionDiff;
   for (var j = 0; j < positionDiff; j++) {
-    f7[index++] = lastValue + step * j;
+    f7[index++] = lastValue + step * j + Math.random() * 0.01;
   }
 
 
@@ -4251,10 +4244,24 @@ function g8() {
   audioSource.playbackRate.setValueAtTime(0.002, s0.currentTime + noteLength);
   audioSource.start(s0.currentTime);
   audioSource.stop(s0.currentTime+noteLength);
-
-
 }
 
+
+function drawBuffer(buffer) {
+
+  var canvas = document.getElementById('debugCanvas');
+  var t6 = canvas.getContext('2d');
+  var mult = 200;
+  t6.strokeStyle = '#dddddd';
+  t6.beginPath();
+  t6.moveTo(0, 300 + buffer[0] * mult);
+
+  for(var i = 1; i < buffer.length; i++) {
+    t6.lineTo(i, 300 + buffer[i] * mult);
+  }
+  t6.stroke();
+
+}
 
 
 // say things

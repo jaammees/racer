@@ -23,6 +23,8 @@ function raceAudioInit() {
     raceAudioCreateTurboBuffer();
     raceAudioCreateNoiseBuffer();
 
+    drawBuffer(audioEngineData);
+
 
     audioScriptNode = audioCtx.createScriptProcessor(1024, 1, 1);
     audioScriptNode.onaudioprocess = function(e) {
@@ -115,7 +117,7 @@ function raceAudioCreateEngineBuffer() {
     var positionDiff = nextPosition - (index - 1);
     var step = (nextValue - lastValue) / positionDiff;
     for (var j = 0; j < positionDiff; j++) {
-      audioEngineData[index++] = lastValue + step * j;
+      audioEngineData[index++] = lastValue + step * j + Math.random() * 0.01;
     }
     lastValue = nextValue;
   }
@@ -123,7 +125,7 @@ function raceAudioCreateEngineBuffer() {
   positionDiff = bufferSize - (index - 1);
   var step = (1 - lastValue) / positionDiff;
   for (var j = 0; j < positionDiff; j++) {
-    audioEngineData[index++] = lastValue + step * j;
+    audioEngineData[index++] = lastValue + step * j + Math.random() * 0.01;
   }
 
 
@@ -189,7 +191,21 @@ function raceAudioCrash() {
   audioSource.playbackRate.setValueAtTime(0.002, audioCtx.currentTime + noteLength);
   audioSource.start(audioCtx.currentTime);
   audioSource.stop(audioCtx.currentTime+noteLength);
-
-
 }
 
+
+function drawBuffer(buffer) {
+
+  var canvas = document.getElementById('debugCanvas');
+  var context = canvas.getContext('2d');
+  var mult = 200;
+  context.strokeStyle = '#dddddd';
+  context.beginPath();
+  context.moveTo(0, 300 + buffer[0] * mult);
+
+  for(var i = 1; i < buffer.length; i++) {
+    context.lineTo(i, 300 + buffer[i] * mult);
+  }
+  context.stroke();
+
+}

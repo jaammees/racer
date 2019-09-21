@@ -341,8 +341,7 @@ Track.prototype = {
       curve: curve,
       kerbWidth: kerbWidth,
       sprites: [],
-      cars: [],
-      color: false ? COLORS.DARK : COLORS.LIGHT
+      cars: []
     });
 
   },
