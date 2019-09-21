@@ -1,8 +1,9 @@
 # racer
 An entry in the [2019 js13kgames competition](https://js13kgames.com/)
 
-Play here: https://js13kgames.com/entries/racer
+Play it here: https://js13kgames.com/entries/racer
 
+Below is the post-mortem. For other entry post-mortems, see https://js13kgames.github.io/resources/
 
 ## Game Summary
 
@@ -10,20 +11,25 @@ Play here: https://js13kgames.com/entries/racer
 
 The idea for Racer was to be a lap based racing game where the player can drive at the back of an opponent to gain speed. Kind of an exaggerated slipstream effect.
 
-In each race the player would start at the back of the pack and need to finish first to go to the next race.
+In each race the player would start at the back of the pack and need to finish first to go to the next race. 
+
+Part of the game would be recognising the different types of corners and how to approach them.
 
 If the player made a mistake, they could press a button to go back in time. The amount they could go back in time would be limited each race.
 
 The back in time function didn't make it into the game as I ran out of time.  
 
-The game was intended to be difficult so most players would need to use back in time feature. The difficulty of the game remained though the back in time feature didn't make it.
+The player would have a limited turbo per race. I really liked the turbo/jet in the Gameboy game F1 Race and how the sound kept going up in frequency the longer you held it (even tho speed would reach a limit).
 
+The game was intended to be difficult so most players would need to use back in time feature. The difficulty of the game remained in the game, though the back in time feature didn't make it.
 
-## The Track effect
+The aim was to have six tracks. Two countryside tracks, two city tracks, two beach sunset tracks. Beach sunset didn't make it.
 
-In each race, the track is a straight line increasing in the z direction, with the start line at z = 0.
+## The road effect
 
-The track is split up into rectangular segments. (tracks are built in track.js). Each corner of a rectangular segment has world (x,y,z) coordinates. These coordinates are transformed into screen space by a camera which follows the players' car. (implemented in camera.js). 
+In each race, the road is a straight line increasing in the z direction, with the start line at z = 0.
+
+The road is split into rectangular segments. (tracks are built in track.js). Each corner of a rectangular segment has world coordinates (x,y,z). These coordinates are transformed into screen space by a camera which follows the players' car. (implemented in camera.js). 
 
 A Picture of Rectangles:
 
@@ -32,17 +38,25 @@ A Picture of Rectangles:
 
 The track was going to narrow and widen at certain points and allow for a pitstop lane, but I didn't get to that in time. As a result of the track remaining the same width, the x coordinates of the segments seem unneccesary.
 
-The segments are drawn to screen from the camera's z position to the camera's draw distance. Each segment has a 'curve' variable which indicates how much the track bends to the left or right. When a curved section is drawn, the camera's world x coordinate is shifted by an offset, faking the curve in the road. 
+The segments are drawn to the screen from the camera's z position to the camera's draw distance (in render.js). Each segment has a 'curve' variable which indicates how much the track bends to the left or right. When a curved section is drawn, the camera's world x coordinate is shifted by an offset, faking the curve in the road. 
 
 Segments are drawn using the canvas fill() function.
-Opponent cars and trackside objects are drawn relative to the screen coordinates of the segments they exist on. 
+
+Opponent cars and trackside objects are drawn relative to the screen coordinates of the segments they exist on.
 
 The following link contains descriptions of pseudo 3d road methods:
 [Lou's Pseudo 3d Page] (http://www.extentofthejam.com/pseudo/)
 
+Code inComplete has an implementation of a road effect in JavaScript: https://codeincomplete.com/posts/javascript-racer-v1-straight/
+
 ## Sprites
 
-The cars sprites started as PNGs, but they were taking up too many bytes (3.4K) at the resolution I wanted. So instead, the cars are made up of a collection of 2d polygons and then drawn with lineTo and fill canvas functions (in graphics.js). One advantage of this was it was going to be easy to have different coloured cars, this got left out in trying to finish other things before the deadline.
+The cars sprites started as PNGs, but they were taking up too many bytes (3.4K) at the resolution I wanted. So instead, the cars are made up of a collection of 2d polygons which are drawn with lineTo and fill canvas functions (in graphics.js) onto a sprite sheet. One advantage of this was it was going to be easy to have different coloured cars, this got left out in trying to finish other things before the deadline.
+
+Generated Spritesheet:
+
+![Spritesheet](https://raw.githubusercontent.com/jaammees/racer/master/media/spritesheet.png)
+
 
 For the roadside objects, functions in graphics.js draw sprites to a scratch canvas, using canvas draw functions like lineTo, arc, moveTo, fill, fillRect, etc. Once a sprite is drawn to the scratch canvas, its bounds are worked out and the sprite is transferred to a sprite canvas and its coordinates saved in the sprite canvas.
 
@@ -54,7 +68,7 @@ The title screen was inspired by the Pitstop II title screen for C64.
 
 ![Title](https://raw.githubusercontent.com/jaammees/racer/master/media/pitstop2.gif)
 
-The race titles inspired from Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts and it looked weird. 
+The race titles were inspired by Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts and it looked weird. 
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/racetitle.png)
 
@@ -62,7 +76,7 @@ The mountains and trees in the first race were trying to emulate various NES rac
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/mountains.png)
 
-The flowers were inspired by the tulips stage in Outrun 2006. There were supposed to be different coloured flowers.
+The flowers in race two were inspired by the tulips stage in Outrun 2006. There were supposed to be different coloured flowers.
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/tulips.png)
 
@@ -102,4 +116,21 @@ Race Four, the race no one will likely see:
 
 ![race four](https://raw.githubusercontent.com/jaammees/racer/master/media/race4.gif)
 
-Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. A comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea and spent the whole month making it, but most of the month was spent on graphics and the engine. So again, not much playtesting happened and the game seems to difficult as a result.
+### Ran out of time
+
+Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. A comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea and spent the whole month making it, but most of the month was spent on graphics and the engine. So again, not much playtesting happened and the game seems too difficult as a result. 
+
+Race two is really too difficult. Race three should be before race two.
+
+### No one reads instructions
+
+I had someone try the game after the submission date, he totally missed that players need to drive behind other cars to gain speed. (and that the inside of corners are faster than the outside). He couldn't get past race one.
+
+### Started using Closure Compiler too late
+
+I intended to always use closure compiler, but only started using it the day before. The code compiled but wouldn't run with the browser complaining about undefined variables. Instead of trying to fix this, I hacked together my own build script which replaced variables with shortened versions and then passed the whole thing through uglify.
+Getting the code down in size involved moving a lot of things into the global scope, which didn't feel great.
+
+## Some things that went right
+
+I think it looks nicer than my entry last year. The road effect is smooth and car controls smoothly. I like the car engine sound, think was quite lucky to get it on the second attempt.
