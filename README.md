@@ -27,6 +27,8 @@ The game was intended to be difficult so most players would need to use back in 
 
 The aim was to have six tracks. Two countryside tracks, two city tracks, two beach sunset tracks. Beach sunset didn't make it.
 
+Another idea was to have a backseat driver. After race one, "Bob" would ask if he can ride with you on the next race with the promise you wouldn't notice him, but he then ends up talking through the whole race. Bob's backstory would be that he was an ex-driver who is now a mechanic. After a race, if you could remember a specific fact from him, he'd be so impressed he would upgrade your car. I wrote a whole lot of dialog for Bob, as well as some code. It took up too much space.
+
 ## The road effect
 
 In each race, the road is a straight line increasing in the z direction, with the start line at z = 0.
@@ -70,27 +72,27 @@ The title screen was inspired by the Pitstop II title screen for C64.
 
 ![Title](https://raw.githubusercontent.com/jaammees/racer/master/media/pitstop2.gif)
 
-The race titles were inspired by Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts and it looked weird. 
+The race titles were inspired by Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts as in Mindhunter and it looked weird. 
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/racetitle.png)
 
-The mountains and trees in the first race were trying to emulate various NES racing games.
+The mountains and trees in the first race were trying to emulate various NES racing games. Just kept hacking with Math.random() and lineTo until it looked kindof right.
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/mountains.png)
 
-The flowers in race two were inspired by the tulips stage in Outrun 2006. There were supposed to be different coloured flowers.
+The flowers in race two were inspired by the tulips stage in Outrun 2006. There were supposed to be different coloured flowers. The petals were going to be reused to make bushes, but the bushes got dropped.
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/tulips.png)
 
 
-The night race was inspired by the Chicago stage of Turbo Outrun.
+The night race was inspired by the Chicago stage of Turbo Outrun (without the sexist imagery).
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/night.png)
 
 
 ## Sound 
 
-I searched for a long time how to make a simple car engine noise with a small amount of code. In the end I couldn't find much and the final sound in the game was done in a panic about 5 hrs before the deadline.
+I searched for a long time how to make a simple car engine sound with a small amount of code. In the end I couldn't find much and the final sound in the game was done in a panic about 5 hrs before the deadline.
 
 For most of the development, the car engine sound was a sawtooth wave which increased in frequency as the car accelerated. I found this noise quite annoying and it gave me a headache.
 
