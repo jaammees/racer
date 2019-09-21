@@ -39,7 +39,7 @@ Race.prototype = {
     if(trackNumber >= 4) {
       trackNumber = 0;
     }
-    trackNumber = 3;
+    trackNumber = 0;
     this.raceNumber = trackNumber;
     track = new Track();
 

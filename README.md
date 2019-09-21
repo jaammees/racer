@@ -32,19 +32,47 @@ A Picture of Rectangles:
 
 The track was going to narrow and widen at certain points and allow for a pitstop lane, but I didn't get to that in time. As a result of the track remaining the same width, the x coordinates of the segments seem unneccesary.
 
-The segments are drawn to screen from the camera's z position to the camera's draw distance. Each segment has a 'curve' variable which indicates how much the track bends to the left or right. When a curved section is drawn, the camera's world x coordinate is shifted by and offset, faking the curve in the road. 
+The segments are drawn to screen from the camera's z position to the camera's draw distance. Each segment has a 'curve' variable which indicates how much the track bends to the left or right. When a curved section is drawn, the camera's world x coordinate is shifted by an offset, faking the curve in the road. 
 
 Segments are drawn using the canvas fill() function.
 Opponent cars and trackside objects are drawn relative to the screen coordinates of the segments they exist on. 
 
 The following link contains descriptions of pseudo 3d road methods:
-[Lou's Pseudo 3d Page] http://www.extentofthejam.com/pseudo/
+[Lou's Pseudo 3d Page] (http://www.extentofthejam.com/pseudo/)
 
 ## Sprites
-For cars and roadside objects, functions in graphics.js draw sprites to a scratch canvas, using canvas draw functions like lineTo, arc, moveTo, fill, fillRect, etc. Once a sprite is drawn to the scratch canvas, its bounds are worked out and the sprite is transferred to a sprite canvas and its coordinates saved in the sprite canvas.
+
+The cars sprites started as PNGs, but they were taking up too many bytes (3.4K) at the resolution I wanted. So instead, the cars are made up of a collection of 2d polygons and then drawn with lineTo and fill canvas functions (in graphics.js). One advantage of this was it was going to be easy to have different coloured cars, this got left out in trying to finish other things before the deadline.
+
+For the roadside objects, functions in graphics.js draw sprites to a scratch canvas, using canvas draw functions like lineTo, arc, moveTo, fill, fillRect, etc. Once a sprite is drawn to the scratch canvas, its bounds are worked out and the sprite is transferred to a sprite canvas and its coordinates saved in the sprite canvas.
+
+## Graphics Inspiration
+
+The title screen was inspired by the Pitstop II title screen for C64.
+
+![Title](https://raw.githubusercontent.com/jaammees/racer/master/media/title.png)
+
+![Title](https://raw.githubusercontent.com/jaammees/racer/master/media/pitstop2.gif)
+
+The race titles inspired from Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts and it looked weird. 
+
+![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/racetitle.png)
+
+The mountains and trees in the first race were trying to emulate various NES racing games.
+
+![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/mountains.png)
+
+The flowers were inspired by the tulips stage in Outrun 2006. There were supposed to be different coloured flowers.
+
+![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/tulips.png)
+
+
+The night race was inspired by the Chicago stage of Turbo Outrun.
+
+![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/night.png)
+
 
 ## Sound 
-
 
 I searched for a long time how to make a simple car engine noise with a small amount of code. In the end I couldn't find much and the final sound in the game was done in a panic about 5 hrs before the deadline.
 
@@ -52,7 +80,7 @@ For most of the development, the car engine sound was a sawtooth wave which incr
 
 The engine noise in the relased version is made by linearly interpolating between a random set of points in a buffer with a small amount of extra randomness added to the linear interpolation.
 
-The Player Car Engine Sound:
+The Player Car Engine Sound, wiggly lines between random points:
 
 ![The Engine Sound](https://raw.githubusercontent.com/jaammees/racer/master/media/enginesound.png)
 
@@ -60,18 +88,18 @@ At first the code was used AudioBufferSourceNodes and altered the playbackRate r
 
 For the turbo sound I wanted a square wave with noise added on top. However, I didn't want a square wave with 50% duty cycle. The OscillatorNode doesn't seem to have parameter to control the duty cycle of square waves. I saw some people had combined different wave types to make square waves with different duty cycles, but this seemed to complicated, so the game generates a square wave into a buffer which is then also played by the ScriptProcessorNode.
 
-The Turbo Sound Before Noise is Added:
+The Turbo Sound Before Noise is Added, skinny squares:
 
 ![The Turbo Sound Before Noise Added](https://raw.githubusercontent.com/jaammees/racer/master/media/turbosound.png)
 
 ## Opponent AI
-Generally, the higher the position of the car in race, the faster its speed will be, this reduces the amount of overtaking opponent cars do and so simplifies the code. Opponent cars will first look ahead to find the closest car within a certain distance. If they find a car, they will try to shift to a side where there is enough room to pass. If no cars are found, some opponents will look for turns ahead and try to move to the inside lane. Originally, all cars tried to move to the inside lane, but this lead to all the cars in the same lane in both curves and straights, making overtaking boring.
+Generally, the higher the position of the car in race, the faster its speed will be. This reduces the amount of overtaking opponent cars need to do and so simplifies the code. Opponent cars will first look ahead to find the closest car within a certain distance. If they find a car, they will try to shift to a side where there is enough room to pass. If no cars are found, some opponents will look for turns ahead and try to move to the inside lane. Originally, all cars tried to move to the inside lane, but this lead to all the cars in the same lane in both curves and straights, making overtaking boring.
 
+
+## Some things that went wrong
 
 Race Four, the race no one will likely see:
 
 ![race four](https://raw.githubusercontent.com/jaammees/racer/master/media/race4.gif)
 
-
-
-
+Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. A comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea and spent the whole month making it, but most of the month was spent on graphics and the engine. So again, not much playtesting happened and the game seems to difficult as a result.
