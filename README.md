@@ -57,10 +57,11 @@ Code inComplete has an implementation of a road effect in JavaScript: https://co
 
 The cars sprites started as PNGs, but they were taking up too many bytes (3.4K) at the resolution I wanted. So instead, the cars are made up of a collection of 2d polygons which are drawn with lineTo and fill canvas functions (in graphics.js) onto a sprite sheet. One advantage of this was it was going to be easy to have different coloured cars, this got left out in trying to finish other things before the deadline.
 
-Generated Spritesheet:
+Part of a Generated Spritesheet:
 
 ![Spritesheet](https://raw.githubusercontent.com/jaammees/racer/master/media/spritesheet.png)
 
+Fun fact: in the original Outrun arcade game, the car sprite is flipped to create turning sprites for both directions. This is why the horse changes the direction it faces and the numberplate flips.
 
 For the roadside objects, functions in graphics.js draw sprites to a scratch canvas, using canvas draw functions like lineTo, arc, moveTo, fill, fillRect, etc. Once a sprite is drawn to the scratch canvas, its bounds are worked out and the sprite is transferred to a sprite canvas and its coordinates saved in the sprite canvas.
 
