@@ -25,6 +25,7 @@ In each race, the track is a straight line increasing in the z direction, with t
 
 The track is split up into rectangular segments. (tracks are built in track.js). Each corner of a rectangular segment has world (x,y,z) coordinates. These coordinates are transformed into screen space by a camera which follows the players' car. (implemented in camera.js). 
 
+A Picture of Rectangles:
 
 ![An interesting picture of rectangles](https://raw.githubusercontent.com/jaammees/racer/master/media/rectangles.png)
 
@@ -51,11 +52,15 @@ For most of the development, the car engine sound was a sawtooth wave which incr
 
 The engine noise in the relased version is made by linearly interpolating between a random set of points in a buffer with a small amount of extra randomness added to the linear interpolation.
 
+The Player Car Engine Sound:
+
 ![The Engine Sound](https://raw.githubusercontent.com/jaammees/racer/master/media/enginesound.png)
 
 At first the code was used AudioBufferSourceNodes and altered the playbackRate relative to the player's speed, but this seemed to cause high CPU usage, so I switched it to use a ScriptProcessorNode, skipping samples as the speed increased.
 
 For the turbo sound I wanted a square wave with noise added on top. However, I didn't want a square wave with 50% duty cycle. The OscillatorNode doesn't seem to have parameter to control the duty cycle of square waves. I saw some people had combined different wave types to make square waves with different duty cycles, but this seemed to complicated, so the game generates a square wave into a buffer which is then also played by the ScriptProcessorNode.
+
+The Turbo Sound Before Noise is Added:
 
 ![The Turbo Sound Before Noise Added](https://raw.githubusercontent.com/jaammees/racer/master/media/turbosound.png)
 
@@ -64,7 +69,8 @@ Generally, the higher the position of the car in race, the faster its speed will
 
 
 Race Four, the race no one will likely see:
-![race four](https://raw.githubusercontent.com/jaammees/racer/master/media/racer.gif)
+
+![race four](https://raw.githubusercontent.com/jaammees/racer/master/media/race4.gif)
 
 
 
