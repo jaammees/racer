@@ -86,7 +86,7 @@ The flowers in race two were inspired by the tulips stage in Outrun 2006. There 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/tulips.png)
 
 
-The night race was inspired by the Chicago stage of Turbo Outrun (without the sexist imagery).
+The night race was inspired by the Chicago stage of Turbo Outrun.
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/night.png)
 
@@ -97,15 +97,15 @@ I searched for a long time how to make a simple car engine sound with a small am
 
 For most of the development, the car engine sound was a sawtooth wave which increased in frequency as the car accelerated. I found this noise quite annoying and it gave me a headache.
 
-The engine noise in the relased version is made by linearly interpolating between a random set of points in a buffer with a small amount of extra randomness added to the linear interpolation.
+The engine noise in the released version is made by linearly interpolating between a random set of points in a buffer with a small amount of extra randomness added to the linear interpolation.
 
 The Player Car Engine Sound, wiggly lines between random points:
 
 ![The Engine Sound](https://raw.githubusercontent.com/jaammees/racer/master/media/enginesound.png)
 
-At first the code was used AudioBufferSourceNodes and altered the playbackRate relative to the player's speed, but this seemed to cause high CPU usage, so I switched it to use a ScriptProcessorNode, skipping samples as the speed increased.
+At first the code used AudioBufferSourceNodes and altered the playbackRate relative to the player's speed, but this seemed to cause high CPU usage, so I switched it to use a ScriptProcessorNode, skipping samples as the speed increased.
 
-For the turbo sound I wanted a square wave with noise added on top. However, I didn't want a square wave with 50% duty cycle. The OscillatorNode doesn't seem to have parameter to control the duty cycle of square waves. I saw some people had combined different wave types to make square waves with different duty cycles, but this seemed to complicated, so the game generates a square wave into a buffer which is then also played by the ScriptProcessorNode.
+For the turbo sound I wanted a square wave with noise added on top. However, I didn't want a square wave with 50% duty cycle. The OscillatorNode doesn't seem to have parameter to control the duty cycle of square waves. I saw some people had combined different wave types to make square waves with different duty cycles, but this seemed complicated, so the game generates a square wave into a buffer which is then also played by the ScriptProcessorNode.
 
 The Turbo Sound Before Noise is Added, skinny squares:
 
@@ -123,9 +123,9 @@ Race Four, the race no one will likely see:
 
 ### Ran out of time
 
-Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. A comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea and spent the whole month making it, but most of the month was spent on graphics and the engine. So again, not much playtesting happened and the game seems too difficult as a result. 
+Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. A comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea and spent the whole month making it, but most of the month was spent on graphics and the engine. So again, not much playtesting happened and the game seems too difficult as a result. Possibly there is not enough reward for the player to persist with the difficulty.
 
-Race two is really too difficult. Race three should be before race two.
+Race two is really too difficult. Race three should be before race two. It has sharper corners, but is easier. Also race three is in the city. A change of location in race two may have caused the player to wonder what else the game might have.
 
 ### No one reads instructions
 
