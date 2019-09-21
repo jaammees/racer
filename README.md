@@ -1,7 +1,7 @@
 # racer
 An entry in the [2019 js13kgames competition](https://js13kgames.com/)
 
-Play here: [https://js13kgames.com/entries/racer]https://js13kgames.com/entries/racer
+Play here: https://js13kgames.com/entries/racer
 
 
 ## Game Summary
@@ -10,22 +10,24 @@ Play here: [https://js13kgames.com/entries/racer]https://js13kgames.com/entries/
 
 The idea for Racer was to be a lap based racing game where the player can drive at the back of an opponent to gain speed. Kind of an exaggerated slipstream effect.
 
-In Each race the player would start at the back of the pack and need to finish first to go to the next race.
+In each race the player would start at the back of the pack and need to finish first to go to the next race.
 
 If the player made a mistake, they could press a button to go back in time. The amount they could go back in time would be limited each race.
 
 The back in time function didn't make it into the game as I ran out of time.  
 
-The game was intended to be difficult so most players would need to use back in time feature. The difficulty of the game remained.
+The game was intended to be difficult so most players would need to use back in time feature. The difficulty of the game remained though the back in time feature didn't make it.
 
 
 ## The Track effect
 
 In each race, the track is a straight line increasing in the z direction, with the start line at z = 0.
 
-The track is split up into rectangular segments of equivalent length in the x-direction. (tracks are built in track.js).
+The track is split up into rectangular segments. (tracks are built in track.js). Each corner of a rectangular segment has world (x,y,z) coordinates. These coordinates are transformed into screen space by a camera which follows the players' car. (implemented in camera.js). 
 
-Each corner of a rectangular segment has world (x,y,z) coordinates. These coordinates are transformed into screen space by a camera which follows the players' car. (implemented in camera.js). 
+
+![An interesting picture of rectangles](https://raw.githubusercontent.com/jaammees/racer/master/media/rectangles.png)
+
 
 The track was going to narrow and widen at certain points and allow for a pitstop lane, but I didn't get to that in time. As a result of the track remaining the same width, the x coordinates of the segments seem unneccesary.
 
@@ -58,7 +60,12 @@ For the turbo sound I wanted a square wave with noise added on top. However, I d
 ![The Turbo Sound Before Noise Added](https://raw.githubusercontent.com/jaammees/racer/master/media/turbosound.png)
 
 ## Opponent AI
-Generally, the higher the position of the car in race, the faster its speed will be, this simplifies routine needed to .
+Generally, the higher the position of the car in race, the faster its speed will be, this reduces the amount of overtaking opponent cars do and so simplifies the code. Opponent cars will first look ahead to find the closest car within a certain distance. If they find a car, they will try to shift to a side where there is enough room to pass. If no cars are found, some opponents will look for turns ahead and try to move to the inside lane. Originally, all cars tried to move to the inside lane, but this lead to all the cars in the same lane in both curves and straights, making overtaking boring.
+
+
+Race Four, the race no one will likely see:
+![race four](https://raw.githubusercontent.com/jaammees/racer/master/media/racer.gif)
+
 
 
 
