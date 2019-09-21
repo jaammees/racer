@@ -21,7 +21,9 @@ The back in time function didn't make it into the game as I ran out of time.
 
 The player would have a limited turbo per race. I really liked the turbo/jet in the Gameboy game F1 Race and how the sound kept going up in frequency the longer you held it (even tho speed would reach a limit).
 
-The game was intended to be difficult so most players would need to use back in time feature. The difficulty of the game remained in the game, though the back in time feature didn't make it.
+Players could enter a pitstop where they could trade time for recharging turbo/back in time function (this didn't make it either).
+
+The game was intended to be difficult so most players would need to use back in time feature. The difficulty remained in the game, but the back in time feature didn't make it.
 
 The aim was to have six tracks. Two countryside tracks, two city tracks, two beach sunset tracks. Beach sunset didn't make it.
 
