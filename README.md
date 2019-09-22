@@ -31,7 +31,7 @@ Another idea was to have a backseat driver. After race one, "Bob" would ask if h
 
 ## The road effect
 
-In each race, the road is a straight line increasing in the z direction, with the start line at z = 0.
+In each race, the road is a stored as straight line increasing in the z direction, with the start line at z = 0.
 
 The road is split into rectangular segments. (tracks are built in track.js). Each corner of a rectangular segment has world coordinates (x,y,z). These coordinates are transformed into screen space by a camera which follows the players' car. (implemented in camera.js). 
 
