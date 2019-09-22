@@ -23,6 +23,8 @@ The player would have a limited turbo per race.
 
 Players could enter a pitstop where they could trade time for recharging turbo/back in time function (this didn't make it either).
 
+Timing of revs in the start countdown was going to play a part, only because this seems to be in most arcadey race games. (but this didn't make it in either).
+
 The game was intended to be difficult so most players would need to use back in time feature. The difficulty remained in the game, but the back in time feature didn't make it.
 
 The aim was to have six tracks. Two countryside tracks, two city tracks, two beach sunset tracks. Beach sunset didn't make it.
@@ -48,7 +50,7 @@ Segments are drawn using the canvas fill() function.
 
 Opponent cars and trackside objects are drawn relative to the screen coordinates of the segments they exist on.
 
-The following link contains descriptions of pseudo 3d road methods used in games:
+The following link contains descriptions of some pseudo 3d road methods:
 http://www.extentofthejam.com/pseudo/
 
 Code inComplete has an implementation of a road effect in JavaScript: https://codeincomplete.com/posts/javascript-racer-v1-straight/
@@ -57,13 +59,13 @@ Code inComplete has an implementation of a road effect in JavaScript: https://co
 
 The cars sprites started as PNGs, but they were taking up too many bytes (3.4K) at the resolution I wanted. So instead, the cars are made up of a collection of 2d polygons which are drawn with lineTo and fill canvas functions (in graphics.js) onto a scratch canvas and then drawn to a sprite sheet. One advantage of this was it was going to be easy to have different coloured cars (this got left out in trying to finish other things before the deadline).
 
-Only half of the car going straight is drawn and the other half is created by flipping the first half. Similarly, only the turning left car image is drawn and the turning right car image is created by flipping it.
+Only half of the image of the car going straight is drawn and the other half is created by flipping the first half. Similarly, only the turning left car image is drawn and the turning right car image is created by flipping it.
 
 Part of a Generated Spritesheet:
 
 ![Spritesheet](https://raw.githubusercontent.com/jaammees/racer/master/media/spritesheet.png)
 
-For the roadside objects, functions in graphics.js draw sprites to a scratch canvas, using canvas draw functions like lineTo, arc, moveTo, fill, fillRect, etc. Once a sprite is drawn to the scratch canvas, its bounds are worked out and the sprite is transferred to a sprite canvas and its coordinates saved in the sprite canvas.
+For the roadside objects, functions in graphics.js draw sprites to a scratch canvas, using canvas draw functions like lineTo, arc, moveTo, fill, fillRect, etc. Once a sprite is drawn to the scratch canvas, its bounds are worked out and the sprite is transferred to a sprite canvas and its coordinates in the sprite canvas are stored. For roadside objects, collision boxes are determined using the lower pixels of the objects. This is so collisions with things like trees would be based only of the trunks of the trees.
 
 ## Graphics Inspiration
 
@@ -73,7 +75,7 @@ The title screen was inspired by the Pitstop II title screen for C64.
 
 ![Title](https://raw.githubusercontent.com/jaammees/racer/master/media/pitstop2.gif)
 
-The race titles were inspired by Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts as in Mindhunter and it looked weird. 
+The race titles were inspired by the trend of large titles in things like Mindhunter/Killing Eve/Control. I tried combining italic and normal fonts as in Mindhunter, but it looked weird. 
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/racetitle.png)
 
@@ -87,9 +89,11 @@ The flowers in race two were inspired by the tulips stage in Outrun 2006. There 
 
 
 The night race was inspired by the Chicago stage of Turbo Outrun.
+For the streetlights i wanted to try something with canvas blur and composite operations.
 
 ![Race Title](https://raw.githubusercontent.com/jaammees/racer/master/media/night.png)
 
+I tried different variations of layout for the HUD, but in the end went with something similar to Horizon Chase Turbo. The text was going to have a dark outline or shadow, but that was far down on the list of things to finish. Also, still needed to tweak the positioning of text.
 
 ## Sound 
 
@@ -126,24 +130,31 @@ Race Four, the race no one will likely see:
 
 ### Ran out of time
 
-Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. One comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea and spent the whole month making it, but most of the month was spent on graphics and the game engine. So again, not much playtesting happened and the game seems too difficult as a result. Possibly there is not enough reward for the player to persist with the difficulty.
+Last year for the js13kgames competition I spent most of the month trying to think of an idea and then only a few days making it. One comment on the entry was that the game was fun, but the graphics were quite simplistic. So this year I went with my first idea so i would have the the whole month month to make it, but a large part of the month was spent on graphics and the game engine. 
 
 My entry in the 2018 js13kgames competition: http://js13kgames.com/entries/stay-off-the-red-line
 
-Race two is really too difficult. Race three should be before race two. It has sharper corners, but is easier. Also, race three is in the city. A change of location in race two may have caused the player to wonder what else the game might have and so provide incentive to keep playing.
+I'm also not a big player of racing games, so another large portion of the month was spent on "research" (ie playing games). I thought the back in time feature might be a novel idea to race games, but then found a few games have had this for years.
+
+So again, not much playtesting happened and the game seems too difficult as a result. Possibly there is not enough reward in the game for the player to persist with the difficulty.
+
+
+Race two is too difficult. Race three should be before race two. It has sharper corners, but is easier. Also, race three is in the city. A change of location in race two may have caused the player to wonder what else the game might have and so provide incentive to keep playing.
 
 Using the drift mechanic makes race two easier, but there is not enough visual/audio feedback for it to let the player know they are drifting. Didn't spend enough time on the compromise of tighter corners with drifting and speed reduction when drifting.
 
 ### No one reads instructions
 
-I had someone try the game after the submission date, he totally missed that players need to drive behind other cars to gain speed. (and that the inside of corners are faster than the outside and also how to drift). He couldn't get past race one.
+I had someone try the game after the submission date, he totally missed that players need to drive behind other cars to gain speed. (and also that the inside of corners are faster than the outside and also how to drift). He couldn't get past race one. The game really needs a way of teaching the player the mechanics, or some type of demo/attract mode (which woudln't have taken that much space)
 
 ### Started using Closure Compiler too late
 
-I intended to always use Closure Compiler, but only started using it the day before the competition ended. The code compiled, but wouldn't run without the browser complaining about undefined variables. Instead of trying to fix this, I hacked together my own build script which replaced variables with shortened versions and then passed the whole thing through uglify. The code produced by the closure compiler was smaller than the code produced by my script by 1 to 1.5 KB.
+I intended to always use Closure Compiler, but only started using it the night before the competition ended. My code compiled, but wouldn't run without the browser complaining about undefined variables. Instead of trying to fix this, I hacked together my own build script (build.php) which replaced variables with shortened versions and then passed the whole thing through uglify. The code produced by the closure compiler was smaller than the code produced by my script by around 1 to 1.5 KB.
 
-Getting the code down in size involved moving a lot of things into the global scope, which didn't feel great. Some things I tried in my build script made the code smaller in size, but then made the resulting zip file bigger.  This reminded me of last year where I thought an hour before the deadline I could outdo the compression of a PNG by encoding the graphics using bits for pixels rather than bytes, but the result was my entry went over 13kb.
+Getting the code down in size involved moving a lot of things into the global scope, which didn't feel great. 
+
+Some things I tried in my build script made the code smaller in size, but then made the resulting zip file bigger.  This reminded me of last year where I thought an hour before the deadline I could outdo PNG compression  by encoding the graphics using bits for pixels rather than bytes, but the result was my entry went from around 10kb zipped to over 13kb.
 
 ## Some things that went right
 
-It's not the best looking entry, but I think it looks better than my entry last year, so that aim was achieved. The road effect is smooth and car controls nicely. I like the car engine sound, think was quite lucky to get it on the second attempt. I like the look and sound of the slipstream effect and when performed with the faster cars in the race, i think it feels right (with the slower cars it can be more difficult to get it and then overtake smoothly). I think at times the game can produce some feelings of 'fun'.
+It's not the best looking entry, but I think it looks better than my entry last year, so that aim was achieved. The road effect is smooth and car controls nicely. I like the car engine sound, think was quite lucky to get it on the second attempt. I like the look and sound of the slipstream effect and when it is performed against the faster cars in the race, I think it feels right (with the slower cars the slipstream can be more difficult to achieve and then overtake smoothly). I think at times the game can produce some feelings of 'fun'.
