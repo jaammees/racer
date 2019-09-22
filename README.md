@@ -23,8 +23,6 @@ The player would have a limited turbo per race.
 
 Players could enter a pitstop where they could trade time for recharging turbo/back in time function (this didn't make it either).
 
-Timing of revs in the start countdown was going to play a part, only because this seems to be in most arcadey race games. (but this didn't make it in either).
-
 The game was intended to be difficult so most players would need to use back in time feature. The difficulty remained in the game, but the back in time feature didn't make it.
 
 The aim was to have six tracks. Two countryside tracks, two city tracks, two beach sunset tracks. Beach sunset didn't make it.
