@@ -27,7 +27,7 @@ The game was intended to be difficult so most players would need to use back in 
 
 The aim was to have six tracks. Two countryside tracks, two city tracks, two beach sunset tracks. Beach sunset didn't make it.
 
-Another idea was to have a backseat driver. After race one, "Bob" would ask if he can ride with you on the next race with the promise you wouldn't notice him, but he then ends up talking through the whole race. Bob's backstory would be that he was an ex-driver who is now a mechanic. After a race, if you could remember a specific fact from him, he'd be so impressed he would upgrade your car. I wrote a whole lot of dialog for Bob, as well as some code. It took up too much space.
+Another idea was to have a backseat driver. After race one, "Bob" would ask if he can ride with you on the next race with the promise you wouldn't notice him, but he then ends up talking through the whole race. Bob's backstory was going to be that he used to be a race driver but is now a mechanic. After a race, if you could remember a specific fact from him, he'd be so impressed he would upgrade your car. I wrote a whole lot of dialog for Bob, as well as some code. It took up too much space.
 
 ## The road effect
 
